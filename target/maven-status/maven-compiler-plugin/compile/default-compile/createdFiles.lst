@@ -1,0 +1,14 @@
+mainDomainModel\entities\Group$Room.class
+mainDomainModel\exceptions\RoomNotFoundException.class
+mainDomainModel\entities\Group.class
+mainDomainModel\exceptions\GroupNotFoundException.class
+mainDomainModel\entities\User.class
+mainDomainModel\exceptions\DAOException.class
+mainDomainModel\entities\Group$Message.class
+mainDomainModel\exceptions\DTOtoEntityConvertException.class
+mainDomainModel\exceptions\EntityAlreadyExistsException.class
+mainDomainModel\entities\Group$MessageContent.class
+mainDomainModel\entities\Group$User.class
+mainDomainModel\exceptions\UserNotFoundException.class
+mainDomainModel\entities\Room.class
+mainDomainModel\exceptions\EntityToDTOConvertException.class

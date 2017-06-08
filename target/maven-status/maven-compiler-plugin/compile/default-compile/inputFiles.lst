@@ -1,0 +1,10 @@
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\exceptions\EntityAlreadyExistsException.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\exceptions\RoomNotFoundException.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\entities\User.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\exceptions\DTOtoEntityConvertException.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\exceptions\EntityToDTOConvertException.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\exceptions\GroupNotFoundException.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\entities\Group.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\exceptions\UserNotFoundException.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\entities\Room.java
+C:\Users\akarnov\GitHub\ProjectRooMMate\RooMMateDomainModel\src\main\java\mainDomainModel\exceptions\DAOException.java
