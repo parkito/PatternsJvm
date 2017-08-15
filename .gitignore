@@ -1,12 +1,9 @@
 syntax: glob
 *.idea
-*.gradle
-/gradle/
-/*/gradle/
-/target/
-/*/target/
-/build/
-/*/build/
+.gradle
+gradle
+build
+target
 *.iml
 \.orig\..*$
 \.orig$
