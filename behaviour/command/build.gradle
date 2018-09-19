@@ -1,0 +1,6 @@
+apply plugin: 'application'
+
+mainClassName = 'java.ru.siksmfp.java.patterns.command.Main'
+
+dependencies {
+}
