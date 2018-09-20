@@ -1,4 +1,4 @@
-package chain.src.main.java.ru.siksmfp.java.patterns.chain;
+package ru.siksmfp.java.patterns.chain;
 
 public class Audio implements Handler {
     private String dataType = "Audio";

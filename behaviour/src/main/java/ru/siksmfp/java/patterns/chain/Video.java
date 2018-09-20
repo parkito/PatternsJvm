@@ -1,7 +1,7 @@
-package chain.src.main.java.ru.siksmfp.java.patterns.chain;
+package ru.siksmfp.java.patterns.chain;
 
-public class Text implements Handler {
-    private String dataType = "Text";
+public class Video implements Handler {
+    private String dataType = "Video";
 
     @Override
     public String getHandlerName() {
@@ -15,6 +15,6 @@ public class Text implements Handler {
 
     @Override
     public void process(File file) {
-        System.out.println(file.getFileName() + " is reading");
+        System.out.println(file.getFileName() + " is displaying");
     }
 }

@@ -4,21 +4,49 @@ version '0.0.1-SNAPSHOT'
 
 subprojects {
 
-  apply plugin: "java"
-  apply plugin: "idea"
-  apply from: rootProject.projectDir.path + '/dependencies.gradle'
+    apply plugin: "java"
+    apply plugin: "idea"
+    apply from: rootProject.projectDir.path + '/dependencies.gradle'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
- 
-  repositories {
-    mavenCentral()
-  }
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
-  dependencies {
-     compile "org.slf4j:slf4j-api:$self4jVersion"
-    //test
-    testCompile "org.junit.jupiter:junit-jupiter-api:$jUnitApiVersion"
-    testCompile "org.junit.jupiter:junit-jupiter-engine:$jUnitEngineVersion"
-  }
+    sourceSets {
+        main {
+            java {
+                srcDirs = [
+                        "$projectDir/src/main/java",
+                ]
+                include '**/*.java'
+            }
+
+            resources {
+                srcDirs = [
+                        "$projectDir/src/main/resources"
+                ]
+
+            }
+        }
+
+        test {
+            java { srcDir 'src/test/java' }
+            resources { srcDir 'src/test/resources' }
+        }
+
+        componentTest {
+            java { srcDir 'src/ctest/java' }
+            resources { srcDir 'src/ctest/resources' }
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile "org.slf4j:slf4j-api:$self4jVersion"
+        //test
+        testCompile "org.junit.jupiter:junit-jupiter-api:$jUnitApiVersion"
+        testCompile "org.junit.jupiter:junit-jupiter-engine:$jUnitEngineVersion"
+    }
 }

@@ -1,4 +1,4 @@
-package chain.src.main.java.ru.siksmfp.java.patterns.chain;
+package ru.siksmfp.java.patterns.chain;
 
 /**
  * Created by Artyom Karnov on 05.11.16.
