@@ -1,6 +1,1 @@
-apply plugin: 'application'
-
-mainClassName = 'chain.src.main.java.ru.siksmfp.java.patterns.chain.Main'
-
-dependencies {
-}
+mainClassName = 'ru.siksmfp.java.patterns.chain.Main'

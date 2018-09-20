@@ -1,2 +1,1 @@
-include 'chain'
-include 'command'
+include ":chain", ":command"
