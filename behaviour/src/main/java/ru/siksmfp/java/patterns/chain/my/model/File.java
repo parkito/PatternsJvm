@@ -1,9 +1,5 @@
-package ru.siksmfp.java.patterns.chain;
+package ru.siksmfp.java.patterns.chain.my.model;
 
-/**
- * Created by Artyom Karnov on 05.11.16.
- * artyom-karnov@yandex.ru
- **/
 public class File {
 
     public File(String dataType, String fileName) {

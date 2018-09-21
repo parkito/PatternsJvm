@@ -1,6 +1,9 @@
-package ru.siksmfp.java.patterns.chain;
+package ru.siksmfp.java.patterns.chain.my.handler.impl;
 
-public class Audio implements Handler {
+import ru.siksmfp.java.patterns.chain.my.model.File;
+import ru.siksmfp.java.patterns.chain.my.handler.api.Handler;
+
+public class AudioHandler implements Handler {
     private String dataType = "Audio";
 
     @Override
@@ -10,7 +13,7 @@ public class Audio implements Handler {
 
     @Override
     public boolean isDataCorrect(File file) {
-        return file.getDataType().equals(dataType) ? true : false;
+        return file.getDataType().equals(dataType);
     }
 
     @Override

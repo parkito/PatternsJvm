@@ -1,4 +1,8 @@
-package ru.siksmfp.java.patterns.chain;
+package ru.siksmfp.java.patterns.chain.my.handler.impl;
+
+
+import ru.siksmfp.java.patterns.chain.my.model.File;
+import ru.siksmfp.java.patterns.chain.my.handler.api.Handler;
 
 public class Text implements Handler {
     private String dataType = "Text";
