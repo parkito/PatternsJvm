@@ -11,6 +11,5 @@ public class IncrementAgeCommand implements Command {
     @Override
     public void execute() {
         person.setAge(person.getAge() + 1);
-
     }
 }
