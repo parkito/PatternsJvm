@@ -4,8 +4,17 @@ import java.util.List;
 
 public class Matcher {
 
-    public String match(List<Expression> expressions, String string) {
-        return null;
+    private List<Expression> expressions;
+
+    public Matcher(List<Expression> expressions) {
+        this.expressions = expressions;
+    }
+
+    public String match(String string) {
+        for (Expression expr : expressions) {
+            string = expr.interpret(string);
+        }
+        return string;
     }
 
 }

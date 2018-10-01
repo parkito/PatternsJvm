@@ -8,6 +8,6 @@ public class RmExpression extends Expression {
 
     @Override
     public String interpret(String string) {
-        return null;
+        return string.replace(leftOperand, "");
     }
 }

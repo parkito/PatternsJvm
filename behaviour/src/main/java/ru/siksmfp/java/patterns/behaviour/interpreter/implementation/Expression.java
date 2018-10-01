@@ -2,8 +2,8 @@ package ru.siksmfp.java.patterns.behaviour.interpreter.implementation;
 
 public abstract class Expression {
 
-    private String leftOperand;
-    private String rightOperand;
+    protected String leftOperand;
+    protected String rightOperand;
 
     public abstract String interpret(String string);
 

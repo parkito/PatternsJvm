@@ -7,6 +7,6 @@ public class AddExpression extends Expression {
 
     @Override
     public String interpret(String string) {
-        return null;
+        return string + leftOperand;
     }
 }
