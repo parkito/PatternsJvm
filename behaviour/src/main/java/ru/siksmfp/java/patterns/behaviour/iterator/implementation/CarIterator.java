@@ -11,7 +11,11 @@ public class CarIterator implements Iterable<Car> {
 
     @Override
     public Car next() {
-        return cars[currentPosition++];
+        if (currentPosition < cars.length) {
+            return cars[currentPosition++];
+        } else {
+            throw new IllegalArgumentException("Position is not correct");
+        }
     }
 
     @Override
