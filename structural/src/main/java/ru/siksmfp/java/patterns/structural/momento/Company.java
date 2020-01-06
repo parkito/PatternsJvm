@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class Company {
-    private Map<Employee, Deque<Momento>> history = new ConcurrentHashMap<>();
+    private Map<String, Deque<Momento>> history = new ConcurrentHashMap<>();
 
     public void promote(Employee employee) {
         snapshot(employee);
@@ -18,16 +18,21 @@ public class Company {
         employee.pay();
     }
 
-    private void snapshot(Employee employee) {
-        Momento momento = employee.createMomento();
-        history.computeIfAbsent(employee, v -> new ConcurrentLinkedDeque<>())
-                .addLast(momento);
+    public void undoLastAction(Employee employee) {
+        Deque<Momento> momentos = history.get(employee.getUuid());
+        if (momentos != null) {
+            Momento last = momentos.pollLast();
+            if (last != null) {
+                employee.setMomento(last);
+                return;
+            }
+        }
+        throw new IllegalStateException("Can't perform undo action due to history sate");
     }
 
-    public void undoLastAction(Employee employee) {
-        Deque<Momento> momentos = history.get(employee);
-        if (momentos != null) {
-            momentos.pollLast();
-        }
+    private void snapshot(Employee employee) {
+        Momento momento = employee.createMomento();
+        history.computeIfAbsent(employee.getUuid(), v -> new ConcurrentLinkedDeque<>())
+                .addLast(momento);
     }
 }
