@@ -4,49 +4,49 @@ version '0.0.1-SNAPSHOT'
 
 subprojects {
 
-    apply plugin: "java"
-    apply plugin: "idea"
-    apply from: rootProject.projectDir.path + '/dependencies.gradle'
+  apply plugin: "java"
+  apply plugin: "idea"
+  apply from: rootProject.projectDir.path + '/dependencies.gradle'
 
-    sourceCompatibility = 11
-    targetCompatibility = 11
+  sourceCompatibility = 11
+  targetCompatibility = 11
 
-    sourceSets {
-        main {
-            java {
-                srcDirs = [
-                        "$projectDir/src/main/java",
-                ]
-                include '**/*.java'
-            }
+  sourceSets {
+    main {
+      java {
+        srcDirs = [
+          "$projectDir/src/main/java",
+        ]
+        include '**/*.java'
+      }
 
-            resources {
-                srcDirs = [
-                        "$projectDir/src/main/resources"
-                ]
+      resources {
+        srcDirs = [
+          "$projectDir/src/main/resources"
+        ]
 
-            }
-        }
-
-        test {
-            java { srcDir 'src/test/java' }
-            resources { srcDir 'src/test/resources' }
-        }
-
-        componentTest {
-            java { srcDir 'src/ctest/java' }
-            resources { srcDir 'src/ctest/resources' }
-        }
+      }
     }
 
-    repositories {
-        mavenCentral()
+    test {
+      java { srcDir 'src/test/java' }
+      resources { srcDir 'src/test/resources' }
     }
 
-    dependencies {
-        compile "org.slf4j:slf4j-api:$self4jVersion"
-        //test
-        testCompile "org.junit.jupiter:junit-jupiter-api:$jUnitApiVersion"
-        testCompile "org.junit.jupiter:junit-jupiter-engine:$jUnitEngineVersion"
+    componentTest {
+      java { srcDir 'src/ctest/java' }
+      resources { srcDir 'src/ctest/resources' }
     }
+  }
+
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    compile "org.slf4j:slf4j-api:$self4jVersion"
+    //test
+    compile "org.junit.jupiter:junit-jupiter-api:$jUnitApiVersion"
+    compile "org.junit.jupiter:junit-jupiter-engine:$jUnitEngineVersion"
+  }
 }
