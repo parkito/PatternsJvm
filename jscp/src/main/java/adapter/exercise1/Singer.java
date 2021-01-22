@@ -5,10 +5,10 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
+package adapter.exercise1;
 
-package visitor.exercise1;
-
-public interface Visitor {
-    void visit(Person p);
-    void visit(DistributionList dl);
+//DON'T CHANGE
+public interface Singer {
+    void sing();
 }
+

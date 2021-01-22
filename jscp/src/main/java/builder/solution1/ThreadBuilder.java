@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package builder.solution1;
 
 public class ThreadBuilder {

@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package interpreter.exercise1;
 
 import org.junit.*;
@@ -14,6 +13,7 @@ import java.lang.reflect.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class ExpressionTest {
     @Test
     public void testExpression1() {

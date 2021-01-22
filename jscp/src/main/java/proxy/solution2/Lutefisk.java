@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.solution2;
 
+//DON'T CHANGE
 public interface Lutefisk {
     void eat();
 }

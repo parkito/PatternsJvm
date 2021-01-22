@@ -5,12 +5,12 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.solution1;
 
 import java.util.*;
 import java.util.function.*;
 
+// DON'T CHANGE
 public class IntIteratorSpliterator implements Spliterator.OfInt {
     static final int BATCH_UNIT = 1 << 10;  // batch array size increment
     static final int MAX_BATCH = 1 << 25;  // max batch array size;
@@ -45,7 +45,7 @@ public class IntIteratorSpliterator implements Spliterator.OfInt {
     }
 
     @Override
-    public OfInt trySplit() {
+    public Spliterator.OfInt trySplit() {
         IntIterator i;
         long s;
         if ((i = it) == null) {
@@ -111,7 +111,7 @@ public class IntIteratorSpliterator implements Spliterator.OfInt {
     }
 
 
-    static final class IntArraySpliterator implements OfInt {
+    static final class IntArraySpliterator implements Spliterator.OfInt {
         private final int[] array;
         private int index;        // current index, modified on advance/split
         private final int fence;  // one past last index

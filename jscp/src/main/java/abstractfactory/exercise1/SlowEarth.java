@@ -5,10 +5,8 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractfactory.exercise1;
 
-//ConcreteFactory
 public class SlowEarth extends Earth {
     protected SlowEarth() {
     }
@@ -22,10 +20,10 @@ public class SlowEarth extends Earth {
     }
 
     public Vehicle createVehicle() {
-        return new Tractor();
+        throw new UnsupportedOperationException("todo");
     }
 
     public Animal createAnimal() {
-        return new Sloth();
+        throw new UnsupportedOperationException("todo");
     }
 }

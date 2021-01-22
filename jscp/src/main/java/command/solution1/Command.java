@@ -7,6 +7,7 @@
  */
 package command.solution1;
 
+//DON'T CHANGE
 public interface Command {
     void execute();
 }

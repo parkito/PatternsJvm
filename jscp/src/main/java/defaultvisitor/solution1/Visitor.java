@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package defaultvisitor.solution1;
 
+//DON'T CHANGE
 public interface Visitor {
     void visit(Person p);
 

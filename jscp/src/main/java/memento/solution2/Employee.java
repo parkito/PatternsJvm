@@ -5,12 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package memento.solution2;
 
 import java.io.*;
 
 public class Employee implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     public enum Position {TESTER, PROGRAMMER, MANAGER}
 
     private int salary = 1000;
@@ -67,6 +68,7 @@ public class Employee implements Serializable {
     }
 
     private static class MementoImpl implements Memento, Serializable {
+        private static final long serialVersionUID = 1L;
         private final int salary;
         private final int balance;
         private final Employee.Position position;

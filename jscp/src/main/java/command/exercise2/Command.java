@@ -7,6 +7,7 @@
  */
 package command.exercise2;
 
+//DON'T CHANGE
 public interface Command {
     void execute();
 }

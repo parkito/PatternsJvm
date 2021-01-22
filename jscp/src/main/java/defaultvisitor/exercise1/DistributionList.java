@@ -9,7 +9,8 @@ package defaultvisitor.exercise1;
 
 import java.util.*;
 
-public class DistributionList extends AbstractCompositeContact {
+//DON'T CHANGE
+public class DistributionList extends Contact {
     private final List<Contact> contacts = new ArrayList<>();
 
     public void add(Contact contact) {
@@ -27,7 +28,7 @@ public class DistributionList extends AbstractCompositeContact {
     }
 
     public void accept(Visitor visitor) {
-        visitor.visitDistributionList(this);
+        visitor.visit(this);
         contacts.forEach(contact -> contact.accept(visitor));
     }
 

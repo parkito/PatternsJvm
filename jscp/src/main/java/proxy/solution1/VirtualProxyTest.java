@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.solution1;
 
 import org.junit.*;
@@ -15,6 +14,7 @@ import java.lang.reflect.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class VirtualProxyTest {
     @Test
     public void testLutefiskIsInterface() throws IllegalAccessException, InstantiationException {
@@ -99,4 +99,3 @@ public class VirtualProxyTest {
         }
     }
 }
-

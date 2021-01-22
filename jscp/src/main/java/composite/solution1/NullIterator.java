@@ -9,6 +9,7 @@ package composite.solution1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class NullIterator<T> implements Iterator<T> {
     private final static NullIterator<Object> instance = new NullIterator<>();
 

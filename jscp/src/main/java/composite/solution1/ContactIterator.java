@@ -31,18 +31,19 @@ public class ContactIterator implements Iterator<Contact> {
     }
 
     private Contact findNextLeafContact() {
-        if (unfinishedIterators.isEmpty()) return null;
-        lastIteratorUsed = unfinishedIterators.peek();
-        if (lastIteratorUsed.hasNext()) {
-            Contact c = lastIteratorUsed.next();
-            if (c.isLeaf()) {
-                return c;
+        while (true) {
+            if (unfinishedIterators.isEmpty()) return null;
+            lastIteratorUsed = unfinishedIterators.pop();
+            if (lastIteratorUsed.hasNext()) {
+                Contact c = lastIteratorUsed.next();
+                if (c.isLeaf()) {
+                    unfinishedIterators.push(lastIteratorUsed);
+                    return c;
+                }
+                unfinishedIterators.push(lastIteratorUsed);
+                unfinishedIterators.push(c.children());
             }
-            unfinishedIterators.push(c.children());
-        } else {
-            unfinishedIterators.remove();
         }
-        return findNextLeafContact();
     }
 
     public Contact next() {

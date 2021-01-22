@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package visitor.exercise1;
 
 public class Person extends Contact {
@@ -19,13 +18,5 @@ public class Person extends Contact {
         System.out.println("To: " + email);
         System.out.println("Msg: " + msg);
         System.out.println();
-    }
-
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
-
-    public String getEmail() {
-        return email;
     }
 }

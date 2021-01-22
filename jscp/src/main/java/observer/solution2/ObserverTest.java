@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package observer.solution2;
 
 import org.junit.*;
@@ -70,10 +69,10 @@ public class ObserverTest {
     }
 
     private void changeFile(double newSharePrice) throws FileNotFoundException {
-        PrintWriter out = new PrintWriter("stocks.csv");
-        out.println("WEZ," + newSharePrice);
-        out.println("DID,12.21");
-        out.println("TEL,45.15");
-        out.close();
+        try (PrintWriter out = new PrintWriter("stocks.csv")) {
+            out.println("WEZ," + newSharePrice);
+            out.println("DID,12.21");
+            out.println("TEL,45.15");
+        }
     }
 }

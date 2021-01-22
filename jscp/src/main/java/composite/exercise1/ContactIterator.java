@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package composite.exercise1;
 
 import java.util.*;
@@ -16,51 +15,16 @@ import java.util.*;
  * whether there is a next element or not.
  */
 public class ContactIterator implements Iterator<Contact> {
-    private Contact nextContact;
-    private final Deque<Iterator<Contact>> unfinishedIterators =
-        new ArrayDeque<>();
-    private Iterator<Contact> lastIteratorUsed;
-
     public ContactIterator(Contact contact) {
-        if (contact.isLeaf()) {
-            nextContact = contact;
-        } else {
-            unfinishedIterators.addLast(contact.children());
-        }
+        throw new UnsupportedOperationException("todo");
     }
 
     public boolean hasNext() {
-        if (nextContact == null) {
-            nextContact = findNextContact();
-        }
-        return nextContact != null;
-    }
-
-    private Contact findNextContact() {
-        while (true) {
-            if (unfinishedIterators.isEmpty()) return null;
-            Iterator<Contact> it = unfinishedIterators.peekLast();
-            if (it.hasNext()) {
-                Contact c = it.next();
-                if (c.isLeaf()) {
-                    lastIteratorUsed = it;
-                    return c;
-                } else {
-                    unfinishedIterators.addLast(c.children());
-                }
-            } else {
-                unfinishedIterators.removeLast();
-            }
-        }
+        throw new UnsupportedOperationException("todo");
     }
 
     public Contact next() {
-        if (!hasNext()) {
-            throw new NoSuchElementException();
-        }
-        Contact result = nextContact;
-        nextContact = null;
-        return result;
+        throw new UnsupportedOperationException("todo");
     }
 
     /**
@@ -69,9 +33,6 @@ public class ContactIterator implements Iterator<Contact> {
      * the composite tree structure.
      */
     public void remove() {
-        if (lastIteratorUsed == null) {
-            throw new IllegalStateException("No elements");
-        }
-        lastIteratorUsed.remove();
+        throw new UnsupportedOperationException("todo");
     }
 }

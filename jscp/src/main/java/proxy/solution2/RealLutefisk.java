@@ -7,6 +7,7 @@
  */
 package proxy.solution2;
 
+//DON'T CHANGE
 public class RealLutefisk implements Lutefisk {
     public RealLutefisk() {
         System.out.println("Lutefisk created!");

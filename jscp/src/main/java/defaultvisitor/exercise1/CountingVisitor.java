@@ -19,16 +19,16 @@ import java.util.concurrent.atomic.*;
  * lengths.
  */
 
-public class CountingVisitor implements DefaultVisitor {
+public class CountingVisitor implements Visitor {
     private final LongAdder leaves = new LongAdder();
     private final Statistics stats = new Statistics();
 
-    public void visitAbstractLeafContact(AbstractLeafContact c) {
+    public void visit(Person p) {
         leaves.increment();
     }
 
-    public void visitAbstractCompositeContact(AbstractCompositeContact c) {
-        stats.add(c.getNumberOfChildren());
+    public void visit(DistributionList dl) {
+        stats.add(dl.getNumberOfChildren());
     }
 
     public int getNumberOfLeaves() {

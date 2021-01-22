@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.exercise1;
 
+//DON'T CHANGE
 public abstract class Scandinavian {
     public abstract void work();
 

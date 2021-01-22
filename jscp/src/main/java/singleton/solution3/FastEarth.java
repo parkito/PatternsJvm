@@ -7,7 +7,6 @@
  */
 package singleton.solution3;
 
-
 public class FastEarth extends Earth {
     public void spin() {
         System.out.println("Earth is spinning fast");

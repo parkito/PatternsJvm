@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package defaultvisitor.solution1;
 
 public interface DefaultVisitor extends Visitor {

@@ -9,19 +9,19 @@ package memento.solution1;
 
 public class HIVLab {
     public static void main(String... args) {
-//        LabRat mickey = new LabRat();
-//        Memento memento;
-//        while (true) {
-//            memento = mickey.createMemento();
-//            mickey.feedDrugs();
-//            if (!mickey.isAlive()) {
-//                mickey.setMemento(memento);
-//            }
-//            memento = mickey.createMemento();
-//            mickey.blastWithRadar();
-//            if (!mickey.isAlive()) {
-//                mickey.setMemento(memento);
-//            }
-//        }
+        LabRat mickey = new LabRat();
+        Memento memento;
+        while (true) {
+            memento = mickey.createMemento();
+            mickey.feedDrugs();
+            if (!mickey.isAlive()) {
+                mickey.setMemento(memento);
+            }
+            memento = mickey.createMemento();
+            mickey.blastWithRadar();
+            if (!mickey.isAlive()) {
+                mickey.setMemento(memento);
+            }
+        }
     }
 }

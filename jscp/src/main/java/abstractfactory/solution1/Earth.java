@@ -9,9 +9,9 @@ package abstractfactory.solution1;
 
 import java.lang.reflect.*;
 
+//DON'T CHANGE
 public abstract class Earth {
     private static volatile Earth earth;
-    private final int speed;
 
     public static Earth getEarth() {
         if (earth == null) {
@@ -25,9 +25,9 @@ public abstract class Earth {
                             Thread.currentThread().getContextClassLoader());
                         Class<? extends Earth> clazz =
                             aClass.asSubclass(Earth.class);
-                        Constructor<? extends Earth> earthConstructor = clazz.getDeclaredConstructor();
-                        earthConstructor.setAccessible(true);
-                        earth = earthConstructor.newInstance();
+                        Constructor<? extends Earth> constructor = clazz.getDeclaredConstructor();
+                        constructor.setAccessible(true);
+                        earth = constructor.newInstance();
                     } catch (ReflectiveOperationException e) {
                         throw new IllegalStateException(
                             "Singleton not initialized: " + className, e);
@@ -39,7 +39,6 @@ public abstract class Earth {
     }
 
     protected Earth() {
-        speed = Integer.parseInt(System.getProperty("earthspeed", "2000"));
     }
 
     public abstract void spin();

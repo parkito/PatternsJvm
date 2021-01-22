@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package strategy.exercise1;
 
 import org.junit.*;
@@ -15,11 +14,11 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class StrategyTest {
     @Test
     public void testThatWeHaveStrategyObjects() throws ClassNotFoundException {
-        Collection<Class<? extends TaxStrategy>> concreteStrategies =
-            TestHelpers.getClassesExtending(TaxStrategy.class);
+        Collection<Class<? extends TaxStrategy>> concreteStrategies = TestHelpers.getClassesExtending(TaxStrategy.class);
         assertEquals("We expect three concrete strategies to exist, one for each tax type", 3, concreteStrategies.size());
     }
 

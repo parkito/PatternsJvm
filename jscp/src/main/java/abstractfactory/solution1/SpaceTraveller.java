@@ -14,6 +14,7 @@ package abstractfactory.solution1;
  * -Dearthclass=abstractfactory.FastEarth
  * to see a Lamborghini and a Cheetah.
  */
+//DON'T CHANGE
 public class SpaceTraveller {
     public static void main(String... args) {
         Vehicle car = Earth.getEarth().createVehicle();

@@ -5,13 +5,16 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
+package command.exercise2;
 
-package playground.flyweight;
+public class FanStopRotateCommand implements Command {
+    private final Fan fan;
 
-public class Holder2 {
-    public String name;
+    public FanStopRotateCommand(Fan fan) {
+        this.fan = fan;
+    }
 
-    {
-        name = "Holger";
+    public void execute() {
+        fan.stopRotate();
     }
 }

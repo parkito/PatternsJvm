@@ -5,14 +5,15 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package observer.exercise1;
 
 import java.util.*;
+import java.util.concurrent.*;
 
-public class Trader implements Observer {
+@SuppressWarnings("deprecation")
+public class Trader {
     private final StockTicker ticker = new StockTicker();
-    private final Set<String> watchlist = new LinkedHashSet<>();
+    private final Set<String> watchlist = new ConcurrentSkipListSet<>();
 
     public Trader(String... shares) {
         Collections.addAll(watchlist, shares);
@@ -20,15 +21,6 @@ public class Trader implements Observer {
 
     public void registerListeners() {
         // add ourselves as an observer for the StockTicker
-        ticker.addObserver(this);
-    }
-
-    public void update(Observable o, Object arg) {
-        SharePrice sp = (SharePrice) arg;
-        if (watchlist.contains(sp.getShare())) {
-            System.out.printf(Locale.US,
-                "Share change: %s now %f%n", sp.getShare(), sp.getPrice());
-        }
     }
 
     // When the observable notifies us, we first check whether

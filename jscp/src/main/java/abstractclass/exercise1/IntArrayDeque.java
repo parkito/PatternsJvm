@@ -5,15 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.exercise1;
 
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
-public class IntArrayDeque extends AbstractIntCollection
-    implements Cloneable {
+public class IntArrayDeque implements Cloneable {
     // TODO: extend AbstractIntCollection and change references to
     // TODO: IntCollection instead of IntArrayDeque where you can.
     // TODO: toString() is the same as in AbtractIntCollection - delete
@@ -72,7 +70,7 @@ public class IntArrayDeque extends AbstractIntCollection
                     numElements + 1];
     }
 
-    public IntArrayDeque(IntCollection c) {
+    public IntArrayDeque(IntArrayDeque c) {
         this(c.size());
         addAll(c);
     }
@@ -123,7 +121,7 @@ public class IntArrayDeque extends AbstractIntCollection
             grow(1);
     }
 
-    public boolean addAll(IntCollection c) {
+    public boolean addAll(IntArrayDeque c) {
         final int s, needed;
         if ((needed = (s = size()) + c.size() + 1 - elements.length) > 0)
             grow(needed);
@@ -510,12 +508,12 @@ public class IntArrayDeque extends AbstractIntCollection
         return bulkRemove(filter);
     }
 
-    public boolean removeAll(IntCollection c) {
+    public boolean removeAll(IntArrayDeque c) {
         Objects.requireNonNull(c);
         return bulkRemove(c::contains);
     }
 
-    public boolean retainAll(IntCollection c) {
+    public boolean retainAll(IntArrayDeque c) {
         Objects.requireNonNull(c);
         return bulkRemove(e -> !c.contains(e));
     }
@@ -640,7 +638,7 @@ public class IntArrayDeque extends AbstractIntCollection
         // Use head and tail fields with empty slot at tail strategy.
         // head == tail disambiguates to "empty".
         try {
-            int capacity = elements.length;
+            // int capacity = elements.length;
             // assert 0 <= head && head < capacity;
             // assert 0 <= tail && tail < capacity;
             // assert capacity > 0;
@@ -657,9 +655,23 @@ public class IntArrayDeque extends AbstractIntCollection
         }
     }
 
+    public String toString() {
+        return stream().mapToObj(Integer::toString)
+            .collect(Collectors.joining(", ", "[", "]"));
+    }
+
+    public IntStream stream() {
+        return StreamSupport.intStream(spliterator(), false);
+    }
+
+    public IntStream parallelStream() {
+        return StreamSupport.intStream(spliterator(), true);
+    }
+
+
     // Bulk Operations
 
-    public boolean containsAll(IntCollection c) {
+    public boolean containsAll(IntArrayDeque c) {
         for (IntIterator it = this.iterator(); it.hasNext(); ) {
             if (!contains(it.next()))
                 return false;

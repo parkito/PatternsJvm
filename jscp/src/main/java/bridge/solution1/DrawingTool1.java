@@ -9,6 +9,7 @@ package bridge.solution1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class DrawingTool1 {
     /**
      * Used to check that all the drawings were done correctly.

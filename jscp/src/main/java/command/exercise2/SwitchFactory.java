@@ -10,13 +10,15 @@ package command.exercise2;
 public class SwitchFactory {
     public static Switch make(Fan fan) {
         return new Switch(
-            fan::startRotate,
-            fan::stopRotate);
+            new FanStartRotateCommand(fan),
+            new FanStopRotateCommand(fan)
+        );
     }
 
     public static Switch make(Light light) {
         return new Switch(
-            light::turnOn,
-            light::turnOff);
+            new LightOnCommand(light),
+            new LightOffCommand(light)
+        );
     }
 }

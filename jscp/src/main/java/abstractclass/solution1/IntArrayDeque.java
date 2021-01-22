@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.solution1;
 
 import java.util.*;
@@ -632,7 +631,7 @@ public class IntArrayDeque extends AbstractIntCollection implements Cloneable {
         // Use head and tail fields with empty slot at tail strategy.
         // head == tail disambiguates to "empty".
         try {
-            int capacity = elements.length;
+            // int capacity = elements.length;
             // assert 0 <= head && head < capacity;
             // assert 0 <= tail && tail < capacity;
             // assert capacity > 0;

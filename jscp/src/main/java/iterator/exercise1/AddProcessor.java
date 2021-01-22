@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package iterator.exercise1;
 
+//DON'T CHANGE
 public class AddProcessor<N extends Number>
     implements Processor<N> {
     private double total = 0;

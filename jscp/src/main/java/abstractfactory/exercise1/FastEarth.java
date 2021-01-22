@@ -5,11 +5,8 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractfactory.exercise1;
 
-
-//ConcreteFactory
 public class FastEarth extends Earth {
     protected FastEarth() {
     }
@@ -23,10 +20,10 @@ public class FastEarth extends Earth {
     }
 
     public Vehicle createVehicle() {
-        return new Lamborghini();
+        throw new UnsupportedOperationException("todo");
     }
 
     public Animal createAnimal() {
-        return new Cheetah();
+        throw new UnsupportedOperationException("todo");
     }
 }

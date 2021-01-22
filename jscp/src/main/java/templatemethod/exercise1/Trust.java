@@ -5,26 +5,26 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package templatemethod.exercise1;
 
 public class Trust extends TaxPayer {
     private final boolean disability;
+    private final double income;
 
     public Trust(boolean disability, double income) {
-        super(income);
         this.disability = disability;
+        this.income = income;
     }
 
     public boolean isDisability() {
         return disability;
     }
 
-    protected double getTaxRate() {
+    private double getTaxRate() {
         return 0.40;
     }
 
-    protected boolean isTaxExempt() {
-        return disability;
+    public double calculateTax() {
+        return disability || income < 0 ? 0.0 : income * getTaxRate();
     }
 }

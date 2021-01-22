@@ -9,6 +9,7 @@ package defaultvisitor.solution1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class DistributionList extends Contact {
     private final List<Contact> contacts = new ArrayList<>();
 

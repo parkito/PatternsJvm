@@ -9,6 +9,7 @@ package iterator.solution1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class WalkingCollectionExample {
     public static void main(String... args) {
         WalkingCollection<Long> ages = new WalkingCollection<>(
@@ -33,7 +34,7 @@ public class WalkingCollectionExample {
 
         CompositeProcessor<Long> composite =
             new CompositeProcessor<>();
-        composite.add(new Processor<Long>() {
+        composite.add(new Processor<>() {
             private long previous = Long.MIN_VALUE;
 
             public boolean process(Long current) {

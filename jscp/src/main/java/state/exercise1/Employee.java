@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package state.exercise1;
 
 /**
@@ -14,23 +13,33 @@ package state.exercise1;
  * up.
  */
 public class Employee {
-    private State state = State.PROGRAMMER;
+    private int type = 0;
+
+    public Employee() {
+        type = 1; // programmer - that's what you start with
+    }
 
     public int pay() {
-        return state.pay();
+        if (type == 1) { // programmer
+            System.out.println("Programmer getting paid");
+            return 3000;
+        }
+        if (type == 2) { // manager
+            System.out.println("Paying lots of $$$ to manager");
+            return 30000;
+        }
+        if (type == 3) { // retiree
+            System.out.println("Handing out crumbs to retiree");
+            return 5000;
+        }
+        return 0;
     }
 
     public void advance() {
-        setState(state.advance());
+        if (type < 4) type++;
     }
 
     public void fire() {
-        setState(state.fire());
-    }
-
-    private void setState(State newState) {
-        if (newState != state)
-            System.out.println(state + " -> " + newState);
-        this.state = newState;
+        if (type < 3) type = 4;
     }
 }

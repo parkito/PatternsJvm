@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractfactory.solution1;
 
 import org.junit.*;
@@ -14,6 +13,7 @@ import java.lang.reflect.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class AbstractFactoryTest {
     @Test
     public void testSlowEarth() {
@@ -37,13 +37,13 @@ public class AbstractFactoryTest {
     public void testCreationUsingProperties() throws Exception {
         resetEarthField();
         System.getProperties().setProperty("earthclass",
-            SlowEarth.class.getName());
+            getClass().getPackageName() + ".SlowEarth");
         Earth slow_earth = Earth.getEarth();
         assertEquals(SlowEarth.class, slow_earth.getClass());
 
         resetEarthField();
         System.getProperties().setProperty("earthclass",
-            FastEarth.class.getName());
+            getClass().getPackageName() + ".FastEarth");
         Earth fast_earth = Earth.getEarth();
         assertEquals(FastEarth.class, fast_earth.getClass());
     }

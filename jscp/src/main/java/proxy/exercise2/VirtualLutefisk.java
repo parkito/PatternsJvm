@@ -5,16 +5,19 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
-package proxy.exercise1;
+package proxy.exercise2;
 
 public class VirtualLutefisk implements Lutefisk {
-    private Lutefisk realSubject;
+    private Lutefisk realLutefisk;
+
+    private Lutefisk realLutefisk() {
+        if (realLutefisk == null) {
+            realLutefisk = new RealLutefisk();
+        }
+        return realLutefisk;
+    }
 
     public void eat() {
-        if (realSubject == null) {
-            realSubject = new RealLutefisk();
-        }
-        realSubject.eat();
+        realLutefisk().eat();
     }
 }

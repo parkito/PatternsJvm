@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package composite.exercise1;
 
+//DON'T CHANGE
 public class MailClient {
     public static void main(String... args) {
         Contact tjsn = new DistributionList();

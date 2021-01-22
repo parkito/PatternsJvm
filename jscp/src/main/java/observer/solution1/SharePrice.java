@@ -7,6 +7,7 @@
  */
 package observer.solution1;
 
+//DON'T CHANGE
 public class SharePrice {
     private final String share;
     private final double price;

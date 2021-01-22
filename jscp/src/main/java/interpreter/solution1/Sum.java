@@ -5,14 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package interpreter.solution1;
-
 
 import maths.*;
 
 import java.util.stream.*;
 
+//DON'T CHANGE
 public class Sum implements Expression {
     private final Expression[] expressions;
 

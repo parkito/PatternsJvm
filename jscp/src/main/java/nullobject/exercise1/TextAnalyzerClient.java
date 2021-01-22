@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package nullobject.exercise1;
 
 import java.io.*;
@@ -19,7 +18,9 @@ public class TextAnalyzerClient {
         int totalLetters = 0;
         for (int i = 0; i < 52; i++) {
             Map.Entry<Character, Long> entry = ta.getEntry(i);
-            totalLetters += entry.getValue();
+            if (entry != null) {
+                totalLetters += entry.getValue();
+            }
             System.out.print(entry + " ");
         }
         System.out.println();

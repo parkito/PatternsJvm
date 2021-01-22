@@ -5,9 +5,7 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package defaultvisitor.demo.a_originalvisitor;
-
 
 import java.util.concurrent.atomic.*;
 

@@ -5,32 +5,21 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package interpreter.exercise1;
-
-import maths.*;
-
-import java.util.stream.*;
 
 /**
  * Facade for Expression elements, to make the framework easier to use.
  */
 public class Expressions {
-    private Expressions() {}
-
     public static Expression sum(String... numbers) {
-        return new Sum(convertToExpressions(numbers));
+        return new Value("TODO");
     }
 
     public static Expression product(String... numbers) {
-        return new Product(convertToExpressions(numbers));
-    }
-
-    private static Expression[] convertToExpressions(String[] numbers) {
-        return Stream.of(numbers).map(Value::new).toArray(Expression[]::new);
+        return new Value("TODO");
     }
 
     public static Expression negate(Expression exp) {
-        return new Product(exp, new Value("-1"));
+        return new Value("TODO");
     }
 }

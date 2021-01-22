@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package iterator.solution1;
 
 import org.junit.*;
@@ -14,6 +13,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class IteratorTest {
     @Test
     public void testIteratorMethods() throws Exception {
@@ -39,7 +39,7 @@ public class IteratorTest {
 
         CompositeProcessor<Long> composite =
             new CompositeProcessor<>();
-        composite.add(new Processor<Long>() {
+        composite.add(new Processor<>() {
             private long previous = Long.MIN_VALUE;
 
             public boolean process(Long current) {
@@ -90,17 +90,15 @@ public class IteratorTest {
         new Thread("slow iterating thread") {
             public void run() {
                 // make a slow processor
-                ages.iterate(new Processor<Object>() {
-                    public boolean process(Object o) {
-                        try {
-                            System.out.println("Processing: " + o);
-                            Thread.sleep(100);
-                            System.out.println("Done: " + o);
-                        } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
-                        }
-                        return true;
+                ages.iterate(o -> {
+                    try {
+                        System.out.println("Processing: " + o);
+                        Thread.sleep(100);
+                        System.out.println("Done: " + o);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
                     }
+                    return true;
                 });
             }
         }.start();
@@ -137,17 +135,15 @@ public class IteratorTest {
             iteratingThreads[i] = new Thread("slow iterating thread " + i) {
                 public void run() {
                     // make a slow processor
-                    ages.iterate(new Processor<Object>() {
-                        public boolean process(Object o) {
-                            try {
-                                System.out.println("Processing: " + o);
-                                Thread.sleep(100);
-                                System.out.println("Done: " + o);
-                            } catch (InterruptedException e) {
-                                Thread.currentThread().interrupt();
-                            }
-                            return true;
+                    ages.iterate(o -> {
+                        try {
+                            System.out.println("Processing: " + o);
+                            Thread.sleep(100);
+                            System.out.println("Done: " + o);
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
                         }
+                        return true;
                     });
                 }
             };

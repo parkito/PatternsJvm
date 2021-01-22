@@ -7,6 +7,7 @@
  */
 package bridge.solution1;
 
+//DON'T CHANGE
 public interface Drawing {
     void drawLine(int x1, int y1, int x2, int y2);
 

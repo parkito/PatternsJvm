@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package command.exercise2;
 
 import org.junit.*;
@@ -16,6 +15,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 import static util.TestHelpers.*;
 
+//DON'T CHANGE
 public class CommandTest {
     @Test
     public void testThatCommandLeftUnchanged() {

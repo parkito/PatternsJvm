@@ -5,11 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package defaultvisitor.exercise1;
 
+//DON'T CHANGE
 public interface Visitor {
-    void visitPerson(Person p);
+    void visit(Person p);
 
-    void visitDistributionList(DistributionList dl);
+    void visit(DistributionList dl);
 }

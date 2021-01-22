@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package singleton.exercise2;
 
 import org.junit.*;
@@ -15,6 +14,7 @@ import java.lang.reflect.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class Singleton2Test {
     @Test
     public void newSpeedLoader() throws Exception {

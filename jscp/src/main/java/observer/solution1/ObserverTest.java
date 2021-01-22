@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package observer.solution1;
 
 import org.junit.*;
@@ -15,8 +14,9 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+@SuppressWarnings("deprecation")
+//DON'T CHANGE
 public class ObserverTest {
-
     @Test
     public void testObserverClassStructure() {
         assertTrue("StockTicker should extends Observable", Observable.class.isAssignableFrom(StockTicker.class));
@@ -36,7 +36,7 @@ public class ObserverTest {
             if (share.getShare().equals("WEZ")) {
                 wesizwe = share;
             }
-            System.out.printf("%s: %f%n", share.getShare(), share.getPrice());
+            System.out.printf(Locale.US, "%s: %f%n", share.getShare(), share.getPrice());
         });
         ticker.start();
 
@@ -57,10 +57,10 @@ public class ObserverTest {
     }
 
     private void changeFile(double newSharePrice) throws FileNotFoundException {
-        PrintWriter out = new PrintWriter("stocks.csv");
-        out.println("WEZ," + newSharePrice);
-        out.println("DID,12.21");
-        out.println("TEL,45.15");
-        out.close();
+        try (PrintWriter out = new PrintWriter("stocks.csv")) {
+            out.println("WEZ," + newSharePrice);
+            out.println("DID,12.21");
+            out.println("TEL,45.15");
+        }
     }
 }

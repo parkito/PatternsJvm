@@ -9,6 +9,7 @@ package iterator.solution1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class CompositeProcessor<E>
     implements Processor<E> {
     private final List<Processor<? super E>> processors =

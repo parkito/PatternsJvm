@@ -9,6 +9,7 @@ package proxy.solution1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class Scandinavia {
     private final List<Scandinavian> citizens = new ArrayList<>();
 

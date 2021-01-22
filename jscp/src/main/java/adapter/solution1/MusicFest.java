@@ -9,6 +9,7 @@ package adapter.solution1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class MusicFest {
     private final List<Singer> singers = new ArrayList<>();
 

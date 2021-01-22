@@ -7,6 +7,7 @@
  */
 package adapter.solution1;
 
+//DON'T CHANGE
 public interface Singer {
     void sing();
 }

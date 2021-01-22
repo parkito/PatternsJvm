@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.exercise2;
 
 import org.junit.*;
@@ -15,6 +14,7 @@ import java.lang.reflect.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class VirtualProxyTest {
     @Test
     public void testOldHandWrittenVirtualLutefiskIsGone() throws Exception {
@@ -27,7 +27,7 @@ public class VirtualProxyTest {
     @Test
     public void testDynamicVirtualLutefiskClassExists() throws Exception {
         try {
-            Class<? extends Lutefisk> virtualLutefiskClass = findVirtualLutefiskClass();
+            findVirtualLutefiskClass();
         } catch (ClassCastException e) {
             fail("The VirtualLutefisk should be derived from Lutefisk");
         }

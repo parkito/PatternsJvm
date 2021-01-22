@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package chainofresponsibility.exercise1;
 
 public class ConverterExample {
@@ -15,8 +14,8 @@ public class ConverterExample {
         // 5.0
         // 4.0
         // INTERESTING
-        // SÜSS
-        //*
+        // S\u00dcSS
+        /*
         Converter chain = new DoubleTrimmerConverter(
             new StringUpperCaseConverter(
                 new StringTrimmerConverter(null)

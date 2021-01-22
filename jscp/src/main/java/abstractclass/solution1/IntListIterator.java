@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.solution1;
 
+// DON'T CHANGE
 public interface IntListIterator extends IntIterator {
     boolean hasNext();
 

@@ -5,18 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package chainofresponsibility.exercise1;
 
-public class StringTrimmerConverter extends Converter {
-    public StringTrimmerConverter(Converter next) {
-        super(next);
-    }
-
+public class StringTrimmerConverter {
     public Object handle(Object o) {
-        if (o instanceof String) {
-            o = ((String)o).trim();
-        }
-        return super.handle(o);
+        // if the object is a String, we trim the whitespace
+        throw new UnsupportedOperationException("todo");
     }
 }

@@ -5,15 +5,16 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
+package command.exercise2;
 
-package proxy.exercise1;
+public class LightOffCommand implements Command {
+    private final Light light;
 
-public class RealLutefisk implements Lutefisk {
-    public RealLutefisk() {
-        System.out.println("Lutefisk created!");
+    public LightOffCommand(Light light) {
+        this.light = light;
     }
 
-    public void eat() {
-        System.out.println("You will regret eating me!");
+    public void execute() {
+        light.turnOff();
     }
 }

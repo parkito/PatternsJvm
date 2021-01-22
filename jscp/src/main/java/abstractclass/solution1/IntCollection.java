@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.solution1;
 
 import java.util.*;
@@ -49,10 +48,6 @@ public interface IntCollection extends IntIterable {
     boolean retainAll(IntCollection c);
 
     void clear();
-
-    boolean equals(Object o);
-
-    int hashCode();
 
     default IntStream stream() {
         return StreamSupport.intStream(spliterator(), false);

@@ -5,12 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package memento.exercise2;
 
-import java.io.*;
-
-public class Employee implements Serializable {
+public class Employee {
     public enum Position {TESTER, PROGRAMMER, MANAGER}
 
     private int salary = 1000;
@@ -51,10 +48,6 @@ public class Employee implements Serializable {
         return true;
     }
 
-    private Object writeReplace() {
-        return createMemento();
-    }
-
     public Memento createMemento() {
         return new MementoImpl(this);
     }
@@ -66,7 +59,7 @@ public class Employee implements Serializable {
         this.position = mi.position;
     }
 
-    private static class MementoImpl implements Memento, Serializable {
+    private static class MementoImpl implements Memento {
         private final int salary;
         private final int balance;
         private final Employee.Position position;
@@ -75,12 +68,6 @@ public class Employee implements Serializable {
             this.salary = employee.salary;
             this.balance = employee.balance;
             this.position = employee.position;
-        }
-
-        private Object readResolve() {
-            Employee employee = new Employee();
-            employee.setMemento(this);
-            return employee;
         }
     }
 }

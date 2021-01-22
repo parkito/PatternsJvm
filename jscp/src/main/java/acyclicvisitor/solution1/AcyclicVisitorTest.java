@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package acyclicvisitor.solution1;
 
 import org.junit.*;
@@ -15,6 +14,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class AcyclicVisitorTest {
     @Test
     public void testCountingVisitor() throws Throwable {
@@ -89,7 +89,7 @@ public class AcyclicVisitorTest {
     public void testEmailGatheringVisitorStructure() {
         try {
             EmailGatheringVisitor.class.getDeclaredMethod("visit", DistributionList.class);
-            fail("EmailGatheringVisitor should not contain a visitContact method for DistributionList");
+            fail("EmailGatheringVisitor should not contain a visit method for DistributionList");
         } catch (NoSuchMethodException ignored) {
             // success
         }

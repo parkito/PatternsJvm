@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.solution1;
 
 import org.junit.*;
@@ -17,6 +16,7 @@ import java.util.stream.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class AbstractClassTest {
     public static class ReadOnlyIntArrayList extends AbstractIntCollection {
         private final int[] elements;
@@ -288,7 +288,7 @@ public class AbstractClassTest {
         checkClassDoesNotContainMethod(IntArrayDeque.class, "parallelStream");
     }
 
-    private void checkClassDoesNotContainMethod(Class<? extends AbstractIntCollection> clazz, String method) {
+    private void checkClassDoesNotContainMethod(Class<?> clazz, String method) {
         try {
             clazz.getDeclaredMethod(method);
             fail(method + "() should be common in AbstractIntCollection and not declared in " + clazz.getSimpleName());

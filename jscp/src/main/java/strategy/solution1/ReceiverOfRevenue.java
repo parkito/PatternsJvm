@@ -7,6 +7,7 @@
  */
 package strategy.solution1;
 
+//DON'T CHANGE
 public class ReceiverOfRevenue {
     public static void main(String... args) {
         TaxPayer heinz, maxsol, family;

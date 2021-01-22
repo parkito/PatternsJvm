@@ -5,20 +5,18 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package iterator.exercise1;
 
-import java.util.ArrayList;
+import org.junit.*;
 
+import java.util.*;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
 
-public class IteratorTest
-{
+//DON'T CHANGE
+public class IteratorTest {
     @Test
-    public void testIteratorMethods()
-        throws Exception
-    {
+    public void testIteratorMethods() throws Exception {
         WalkingCollection<Long> ages = new WalkingCollection<>(
             new ArrayList<>()
         );
@@ -41,12 +39,10 @@ public class IteratorTest
 
         CompositeProcessor<Long> composite =
             new CompositeProcessor<>();
-        composite.add(new Processor<Long>()
-        {
+        composite.add(new Processor<>() {
             private long previous = Long.MIN_VALUE;
 
-            public boolean process(Long current)
-            {
+            public boolean process(Long current) {
                 boolean result = current >= previous;
                 previous = current;
                 return result;
@@ -59,8 +55,7 @@ public class IteratorTest
     }
 
     @Test
-    public void testModifyingWhilstIterating()
-    {
+    public void testModifyingWhilstIterating() {
         final WalkingCollection<String> names =
             new WalkingCollection<>(new ArrayList<>());
 
@@ -73,20 +68,16 @@ public class IteratorTest
             if ("Priscilla".equals(s)) names.remove(s);
             return true;
         };
-        try
-        {
+        try {
             names.iterate(pp);
             fail("We expected an IllegalMonitorStateException");
-        } catch (IllegalMonitorStateException | IllegalStateException success)
-        {
+        } catch (IllegalMonitorStateException | IllegalStateException success) {
             // success
         }
     }
 
     @Test
-    public void testReadWriteLocks()
-        throws Exception
-    {
+    public void testReadWriteLocks() throws Exception {
         final WalkingCollection<Long> ages = new WalkingCollection<>(
             new ArrayList<>()
         );
@@ -96,42 +87,32 @@ public class IteratorTest
         ages.add(12L);
         ages.add(33L);
 
-        new Thread("slow iterating thread")
-        {
-            public void run()
-            {
+        new Thread("slow iterating thread") {
+            public void run() {
                 // make a slow processor
-                ages.iterate(new Processor<Object>()
-                {
-                    public boolean process(Object o)
-                    {
-                        try
-                        {
-                            System.out.println("Processing: " + o);
-                            Thread.sleep(100);
-                            System.out.println("Done: " + o);
-                        } catch (InterruptedException e)
-                        {
-                            Thread.currentThread().interrupt();
-                        }
-                        return true;
+                ages.iterate(o -> {
+                    try {
+                        System.out.println("Processing: " + o);
+                        Thread.sleep(100);
+                        System.out.println("Done: " + o);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
                     }
+                    return true;
                 });
             }
         }.start();
 
-        try
-        {
+        try {
             Thread.sleep(50);
-        } catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
         long time = System.currentTimeMillis();
         ages.add(32L);
         time = System.currentTimeMillis() - time;
         assertTrue("We were able to update whilst another processor " +
-                       "was iterating: time=" + time, time > 300);
+            "was iterating: time=" + time, time > 300);
 
         AddProcessor<Long> ap = new AddProcessor<>();
         ages.iterate(ap);
@@ -139,9 +120,7 @@ public class IteratorTest
     }
 
     @Test
-    public void testReadLocks()
-        throws Exception
-    {
+    public void testReadLocks() throws Exception {
         final WalkingCollection<Long> ages = new WalkingCollection<>(
             new ArrayList<>()
         );
@@ -152,28 +131,19 @@ public class IteratorTest
         ages.add(33L);
 
         Thread[] iteratingThreads = new Thread[3];
-        for (int i = 0; i < iteratingThreads.length; i++)
-        {
-            iteratingThreads[i] = new Thread("slow iterating thread " + i)
-            {
-                public void run()
-                {
+        for (int i = 0; i < iteratingThreads.length; i++) {
+            iteratingThreads[i] = new Thread("slow iterating thread " + i) {
+                public void run() {
                     // make a slow processor
-                    ages.iterate(new Processor<Object>()
-                    {
-                        public boolean process(Object o)
-                        {
-                            try
-                            {
-                                System.out.println("Processing: " + o);
-                                Thread.sleep(100);
-                                System.out.println("Done: " + o);
-                            } catch (InterruptedException e)
-                            {
-                                Thread.currentThread().interrupt();
-                            }
-                            return true;
+                    ages.iterate(o -> {
+                        try {
+                            System.out.println("Processing: " + o);
+                            Thread.sleep(100);
+                            System.out.println("Done: " + o);
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
                         }
+                        return true;
                     });
                 }
             };
@@ -181,18 +151,21 @@ public class IteratorTest
         }
 
         long time = System.currentTimeMillis();
-        try
-        {
+        try {
             // wait for all the threads to stop
-            for (Thread iteratingThread : iteratingThreads)
-            {
+            for (Thread iteratingThread : iteratingThreads) {
                 iteratingThread.join();
             }
-        } catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
         time = System.currentTimeMillis() - time;
         assertTrue("We were not able to iterate concurrently: time=" + time, time < 800);
+    }
+
+    @Test
+    public void testTypeAnnotations() {
+        // no annotations needed as this implementation deviates too much from
+        // the standard pattern structure.
     }
 }

@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package composite.exercise1;
 
 import java.util.*;
@@ -25,13 +24,5 @@ public class DistributionList extends Contact {
         for (Contact contact : contacts) {
             contact.sendMail(msg);
         }
-    }
-
-    public boolean isLeaf() {
-        return false;
-    }
-
-    public Iterator<Contact> children() {
-        return contacts.iterator();
     }
 }

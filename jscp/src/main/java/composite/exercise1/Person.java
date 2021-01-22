@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package composite.exercise1;
 
+//DON'T CHANGE
 public class Person extends Contact {
     private final String email;
 

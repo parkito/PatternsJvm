@@ -7,6 +7,7 @@
  */
 package abstractfactory.solution1;
 
+//DON'T CHANGE
 public interface Animal {
     void sprint();
 }

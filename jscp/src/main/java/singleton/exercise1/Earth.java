@@ -5,9 +5,7 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package singleton.exercise1;
-
 
 /**
  * In the first exercise, please change the Earth to contain a static final
@@ -15,20 +13,11 @@ package singleton.exercise1;
  * non-static.
  */
 public class Earth {
-    private final static Earth earth = new Earth();
-
-    private Earth() {
-    }
-
-    public static Earth getEarth() {
-        return earth;
-    }
-
-    public void spin() {
+    public static void spin() {
         System.out.println("Earth is spinning");
     }
 
-    public void warmUp() {
+    public static void warmUp() {
         System.out.println("Earth is warming up");
     }
 }

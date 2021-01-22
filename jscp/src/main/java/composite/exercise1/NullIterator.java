@@ -5,14 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package composite.exercise1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class NullIterator<T> implements Iterator<T> {
-    private final static NullIterator<Object> instance =
-        new NullIterator<>();
+    private final static NullIterator<Object> instance = new NullIterator<>();
 
     @SuppressWarnings("unchecked")
     public static <T> NullIterator<T> getInstance() {

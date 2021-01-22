@@ -5,16 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.exercise1;
 
 import java.util.*;
 import java.util.stream.*;
 
 // DON'T CHANGE
-public abstract class
-AbstractIntCollection
-    implements IntCollection {
+public abstract class AbstractIntCollection implements IntCollection {
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -98,8 +95,16 @@ AbstractIntCollection
         }
     }
 
-    public final String toString() {
+    public String toString() {
         return stream().mapToObj(Integer::toString)
             .collect(Collectors.joining(", ", "[", "]"));
+    }
+
+    public IntStream stream() {
+        return StreamSupport.intStream(spliterator(), false);
+    }
+
+    public IntStream parallelStream() {
+        return StreamSupport.intStream(spliterator(), true);
     }
 }

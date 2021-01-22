@@ -5,78 +5,68 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package interpreter.solution1;
 
-import java.lang.reflect.Modifier;
+import org.junit.*;
 
+import java.lang.reflect.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
 
-public class ExpressionTest
-{
+//DON'T CHANGE
+public class ExpressionTest {
     @Test
-    public void testExpression1()
-    {
+    public void testExpression1() {
         assertEquals("15", ExpressionFactory.getExpression1().interpret());
     }
 
     @Test
-    public void testExpression2()
-    {
+    public void testExpression2() {
         assertEquals("463/120", ExpressionFactory.getExpression2().interpret());
     }
 
     @Test
-    public void testExpression3()
-    {
+    public void testExpression3() {
         assertEquals("49/240", ExpressionFactory.getExpression3().interpret());
     }
 
     @Test
-    public void testExpression4()
-    {
+    public void testExpression4() {
         assertEquals("-1/3", ExpressionFactory.getExpression4().interpret());
     }
 
     @Test
-    public void testBasicSum()
-    {
+    public void testBasicSum() {
         assertEquals("63/64",
-                     new Sum(
-                         new Value("1/2"),
-                         new Value("1/4"),
-                         new Value("1/8"),
-                         new Value("1/16"),
-                         new Value("1/32"),
-                         new Value("1/64")
-                     ).toString()
+            new Sum(
+                new Value("1/2"),
+                new Value("1/4"),
+                new Value("1/8"),
+                new Value("1/16"),
+                new Value("1/32"),
+                new Value("1/64")
+            ).toString()
         );
     }
 
     @Test
-    public void testComplicatedSum()
-    {
+    public void testComplicatedSum() {
         // 1/3 + 2/3 / 1/2 * 3/4 + 1/2 - 5/6
         assertEquals("1",
-                     new Sum(
-                         new Value("1/3"),
-                         new Product(
-                             new Value("2/3"),
-                             new Value("2/1"),
-                             new Value("3/4")
-                         ),
-                         new Value("1/2"),
-                         new Value("-5/6")
-                     ).toString());
+            new Sum(
+                new Value("1/3"),
+                new Product(
+                    new Value("2/3"),
+                    new Value("2/1"),
+                    new Value("3/4")
+                ),
+                new Value("1/2"),
+                new Value("-5/6")
+            ).toString());
     }
 
     @Test
-    public void matchValueRegex()
-    {
+    public void matchValueRegex() {
         assertTrue(Value.VALUE_FILTER.test("-1/2"));
         assertTrue(Value.VALUE_FILTER.test("1/-2"));
         assertTrue(Value.VALUE_FILTER.test("-1/-2"));
@@ -91,8 +81,7 @@ public class ExpressionTest
     }
 
     @Test
-    public void testFacade()
-    {
+    public void testFacade() {
         assertEquals("6", Expressions.sum("1", "6/3", "90/30").interpret());
         assertEquals("2", Expressions.product("1/2", "2/1", "4/5", "5/2").interpret());
         assertEquals("0", Expressions.sum().interpret());
@@ -102,9 +91,8 @@ public class ExpressionTest
     }
 
     @Test
-    public void testFacadeStructure()
-        throws NoSuchMethodException
-    {
-        assertTrue(Modifier.isPrivate(Expressions.class.getDeclaredConstructor().getModifiers()));
+    public void testFacadeStructure() throws NoSuchMethodException {
+        assertTrue("Facade should have a private constructor",
+            Modifier.isPrivate(Expressions.class.getDeclaredConstructor().getModifiers()));
     }
 }

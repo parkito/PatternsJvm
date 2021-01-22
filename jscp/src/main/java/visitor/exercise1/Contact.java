@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package visitor.exercise1;
 
 public abstract class Contact {
@@ -16,6 +15,4 @@ public abstract class Contact {
     }
 
     public abstract void sendMail(String msg);
-
-    public abstract void accept(Visitor visitor);
 }

@@ -7,6 +7,7 @@
  */
 package acyclicvisitor.exercise1;
 
+//DON'T CHANGE
 public abstract class Contact {
     public void add(Contact contact) {
     }

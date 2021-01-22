@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package state.exercise1;
 
 import org.junit.*;
@@ -16,6 +15,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 import static util.TestHelpers.*;
 
+//DON'T CHANGE
 public class StateTest {
     @Test
     public void testEmployeeFields() throws Exception {
@@ -44,9 +44,9 @@ public class StateTest {
         }
 
         State state = new DefaultState();
-        state.pay();
-        state.advance();
-        state.fire();
+        state.pay(null);
+        state.advance(null);
+        state.fire(null);
     }
 
     @Test

@@ -5,10 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package command.exercise1;
 
-// Command
+//DON'T CHANGE
 public interface Command {
     void execute();
 }

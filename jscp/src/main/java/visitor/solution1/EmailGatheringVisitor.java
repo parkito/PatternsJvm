@@ -7,7 +7,6 @@
  */
 package visitor.solution1;
 
-
 import java.util.*;
 import java.util.concurrent.*;
 

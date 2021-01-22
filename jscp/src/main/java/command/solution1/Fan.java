@@ -7,6 +7,7 @@
  */
 package command.solution1;
 
+//DON'T CHANGE
 public class Fan {
     public void startRotate() {
         System.out.println("Fan is rotating");

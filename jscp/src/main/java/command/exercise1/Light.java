@@ -5,10 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package command.exercise1;
 
-// Receiver
+//DON'T CHANGE
 public class Light {
     public void turnOn() {
         System.out.println("Light is on ");

@@ -7,6 +7,7 @@
  */
 package composite.solution1;
 
+//DON'T CHANGE
 public class Person extends Contact {
     private final String email;
 

@@ -5,24 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package bridge.exercise1;
 
-// RefinedAbstraction
-public class Circle extends Shape{
-    private final int x;
-    private final int y;
-    private final int r;
-
+public class Circle {
     public Circle(Drawing drawing,
                   int x, int y, int r) {
-        super(drawing);
-        this.x = x;
-        this.y = y;
-        this.r = r;
-    }
-
-    public void draw() {
-        drawCircle(x, y, r);
+        throw new UnsupportedOperationException("todo");
     }
 }

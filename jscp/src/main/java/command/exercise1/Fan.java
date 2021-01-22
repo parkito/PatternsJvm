@@ -5,10 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package command.exercise1;
 
-// Receiver
+//DON'T CHANGE
 public class Fan {
     public void startRotate() {
         System.out.println("Fan is rotating");

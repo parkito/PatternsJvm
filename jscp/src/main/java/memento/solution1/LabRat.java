@@ -7,6 +7,9 @@
  */
 package memento.solution1;
 
+import java.util.*;
+import java.util.concurrent.*;
+
 public class LabRat {
     private double cd4Ratio = 0.5;
     private boolean alive = true;
@@ -14,7 +17,7 @@ public class LabRat {
     public void blastWithRadar() {
         if (!alive)
             throw new IllegalStateException("lab rat is dead");
-        cd4Ratio /= Math.random();
+        cd4Ratio /= ThreadLocalRandom.current().nextDouble();
         cd4Ratio -= Math.floor(cd4Ratio);
         checkPulse();
     }
@@ -22,7 +25,7 @@ public class LabRat {
     public void feedDrugs() {
         if (!alive)
             throw new IllegalStateException("lab rat is dead");
-        cd4Ratio *= Math.random();
+        cd4Ratio *= ThreadLocalRandom.current().nextDouble();
         cd4Ratio -= Math.floor(cd4Ratio);
         checkPulse();
     }
@@ -31,7 +34,7 @@ public class LabRat {
         if (cd4Ratio < 0.1) {
             alive = false;
         }
-        System.out.printf("Lab rat ha%s CD4 ratio of %.2f%n",
+        System.out.printf(Locale.US, "Lab rat ha%s CD4 ratio of %.2f%n",
             (alive ? "s" : "d"), cd4Ratio);
     }
 

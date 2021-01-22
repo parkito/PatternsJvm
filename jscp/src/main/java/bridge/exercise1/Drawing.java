@@ -5,10 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package bridge.exercise1;
 
-// Implementor
+//DON'T CHANGE
 public interface Drawing {
     void drawLine(int x1, int y1, int x2, int y2);
 

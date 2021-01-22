@@ -5,14 +5,10 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package adapter.exercise1;
 
+//DON'T CHANGE
 public class Rapper {
-    public Rapper() {
-        System.out.println("Rapper <init>");
-    }
-
     public void talk() {
         System.out.println("Vulgar lyrics deleted ...");
     }

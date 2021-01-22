@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package builder.solution1;
 
 import org.junit.*;
@@ -15,6 +14,7 @@ import java.util.concurrent.atomic.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class ThreadBuilderTest {
     @Test
     public void testPlainThread() throws InterruptedException {

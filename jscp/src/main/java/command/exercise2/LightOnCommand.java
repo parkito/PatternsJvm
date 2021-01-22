@@ -5,11 +5,16 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
+package command.exercise2;
 
-package state.exercise1;
+public class LightOnCommand implements Command {
+    private final Light light;
 
-public abstract class WorkerState extends State {
-    public State fire() {
-        return State.END;
+    public LightOnCommand(Light light) {
+        this.light = light;
+    }
+
+    public void execute() {
+        light.turnOn();
     }
 }

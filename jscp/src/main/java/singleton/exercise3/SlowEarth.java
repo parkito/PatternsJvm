@@ -5,18 +5,7 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package singleton.exercise3;
 
-public class SlowEarth extends Earth {
-    private SlowEarth() {
-    }
-
-    public void spin() {
-        System.out.println("SlowEarth.spin");
-    }
-
-    public void warmUp() {
-        System.out.println("SlowEarth.warmUp");
-    }
+public class SlowEarth {
 }

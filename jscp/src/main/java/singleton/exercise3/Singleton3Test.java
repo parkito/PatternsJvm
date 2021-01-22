@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package singleton.exercise3;
 
 import org.junit.*;
@@ -14,6 +13,7 @@ import java.lang.reflect.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class Singleton3Test {
     @Test
     public void makeEarthWithAnotherClassLoader() throws Exception {
@@ -81,7 +81,7 @@ public class Singleton3Test {
         checkThatSingletonContainsStaticInstanceAccessorMethod(Earth.class);
     }
 
-    private Method checkThatSingletonContainsStaticInstanceAccessorMethod(Class clazz) {
+    private Method checkThatSingletonContainsStaticInstanceAccessorMethod(Class<? extends Earth> clazz) {
         for (Method method : clazz.getDeclaredMethods()) {
             if (method.getReturnType() == clazz && method.getParameterTypes().length == 0) {
                 assertTrue("Method returning the Earth instance should be static", Modifier.isStatic(method.getModifiers()));

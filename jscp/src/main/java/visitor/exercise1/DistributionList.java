@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package visitor.exercise1;
 
 import java.util.*;
@@ -24,14 +23,5 @@ public class DistributionList extends Contact {
 
     public void sendMail(String msg) {
         contacts.forEach(contact -> contact.sendMail(msg));
-    }
-
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-        contacts.forEach(c -> c.accept(visitor));
-    }
-
-    public int getNumberOfChildren() {
-        return contacts.size();
     }
 }

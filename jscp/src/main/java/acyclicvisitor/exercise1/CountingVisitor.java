@@ -19,16 +19,14 @@ import java.util.concurrent.atomic.*;
  * lengths.
  */
 
-public class CountingVisitor implements Visitor, PersonVisitor, DistributionListVisitor {
+public class CountingVisitor implements Visitor {
     private final LongAdder leaves = new LongAdder();
     private final Statistics stats = new Statistics();
 
-    @Override
     public void visit(Person p) {
         leaves.increment();
     }
 
-    @Override
     public void visit(DistributionList dl) {
         stats.add(dl.getNumberOfChildren());
     }

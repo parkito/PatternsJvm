@@ -5,13 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package interpreter.exercise1;
 
 import maths.*;
 
 import java.util.function.*;
 
+//DON'T CHANGE
 public class Value implements Expression {
     public static final Predicate<String> VALUE_FILTER =
         value -> value.matches("^-?[0-9]+(/-?[0-9]+)?");

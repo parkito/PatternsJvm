@@ -5,11 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package adapter.exercise1;
 
-public class Bass implements Performer {
-    public void perform() {
-        System.out.println("Bass.perform");
+//DON'T CHANGE
+public class Bass implements Singer {
+    public void sing() {
+        System.out.println("Bass.sing");
     }
 }

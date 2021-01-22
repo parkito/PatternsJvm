@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package decorator.exercise1;
 
 import org.junit.*;
@@ -14,6 +13,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class DecoratorTest {
     @Test
     public void testRegexIterableStringDecorator() throws Throwable {
@@ -49,7 +49,6 @@ public class DecoratorTest {
         Collection<T> col = new ArrayList<>();
         Collections.addAll(col, values);
         Object obj = new RegexIterable<>(col, regex);
-        @SuppressWarnings("unchecked")
         Iterable<T> result = (Iterable<T>) obj;
         return result;
     }
@@ -116,7 +115,7 @@ public class DecoratorTest {
         assertEquals("9", iterator.next());
         assertFalse(iterator.hasNext());
 
-        // this does not really solution2 thread safety.  To do that would require
+        // this does not really test thread safety.  To do that would require
         // some more work.  One way is to make the iteration slow, so that you
         // are guaranteed a clash.
     }
@@ -137,6 +136,7 @@ public class DecoratorTest {
             it.remove();
             fail("remove() on a ThreadSafeIterable should cause an UnsupportedOperationException");
         } catch (UnsupportedOperationException ignored) {
+            // success
         }
     }
 }

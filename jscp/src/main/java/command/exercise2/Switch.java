@@ -7,6 +7,7 @@
  */
 package command.exercise2;
 
+//DON'T CHANGE
 public final class Switch {
     private final Command flipUpCommand;
     private final Command flipDownCommand;

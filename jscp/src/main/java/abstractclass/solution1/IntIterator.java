@@ -5,12 +5,12 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.solution1;
 
 import java.util.*;
 import java.util.function.*;
 
+// DON'T CHANGE
 public interface IntIterator {
     boolean hasNext();
 

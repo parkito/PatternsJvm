@@ -5,18 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package chainofresponsibility.exercise1;
 
-public class StringUpperCaseConverter extends Converter {
-    public StringUpperCaseConverter(Converter next) {
-        super(next);
-    }
-
+public class StringUpperCaseConverter {
     public Object handle(Object o) {
-        if (o instanceof String) {
-            o = ((String)o).toUpperCase();
-        }
-        return super.handle(o);
+        // if the object is a String, we convert it to UpperCase
+        throw new UnsupportedOperationException("todo");
     }
 }

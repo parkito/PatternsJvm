@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package composite.exercise1;
 
 import java.util.*;
@@ -20,10 +19,10 @@ public abstract class Contact {
     public abstract void sendMail(String msg);
 
     public boolean isLeaf() {
-        return true;
+        throw new UnsupportedOperationException("todo");
     }
 
     public Iterator<Contact> children() {
-        return NullIterator.getInstance();
+        throw new UnsupportedOperationException("todo");
     }
 }

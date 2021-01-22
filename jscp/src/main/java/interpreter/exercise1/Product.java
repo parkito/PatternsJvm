@@ -5,13 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package interpreter.exercise1;
 
 import maths.*;
 
 import java.util.stream.*;
 
+//DON'T CHANGE
 public class Product implements Expression {
     private final Expression[] expressions;
 

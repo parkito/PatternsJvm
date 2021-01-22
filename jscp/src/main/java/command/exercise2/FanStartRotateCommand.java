@@ -5,17 +5,16 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
+package command.exercise2;
 
-package command.exercise1;
+public class FanStartRotateCommand implements Command {
+    private final Fan fan;
 
-public class LightOffCommand implements Command {
-    private final Light light;
-
-    public LightOffCommand(Light light) {
-        this.light = light;
+    public FanStartRotateCommand(Fan fan) {
+        this.fan = fan;
     }
 
     public void execute() {
-        light.turnOff();
+        fan.startRotate();
     }
 }

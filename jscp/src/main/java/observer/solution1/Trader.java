@@ -7,13 +7,13 @@
  */
 package observer.solution1;
 
-
 import java.util.*;
+import java.util.concurrent.*;
 
+@SuppressWarnings("deprecation")
 public class Trader implements Observer {
     private final StockTicker ticker = new StockTicker();
-    private final Set<String> watchlist = Collections.synchronizedSet(
-        new LinkedHashSet<>());
+    private final Set<String> watchlist = new ConcurrentSkipListSet<>();
 
     public Trader(String... shares) {
         Collections.addAll(watchlist, shares);

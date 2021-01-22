@@ -48,5 +48,6 @@ subprojects {
     //test
     compile "org.junit.jupiter:junit-jupiter-api:$jUnitApiVersion"
     compile "org.junit.jupiter:junit-jupiter-engine:$jUnitEngineVersion"
+    compile "junit:junit:4.13.1"
   }
 }

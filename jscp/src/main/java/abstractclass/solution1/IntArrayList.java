@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.solution1;
 
 import java.util.*;
@@ -19,7 +18,7 @@ public class IntArrayList extends AbstractIntCollection implements Cloneable {
 
     private static final int[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 
-    private transient int[] elementData;
+    transient int[] elementData;
 
     private int size;
 
@@ -650,18 +649,5 @@ public class IntArrayList extends AbstractIntCollection implements Cloneable {
                 return false;
         }
         return true;
-    }
-
-    public String toString() {
-        return stream().mapToObj(Integer::toString)
-            .collect(Collectors.joining(", ", "[", "]"));
-    }
-
-    public IntStream stream() {
-        return StreamSupport.intStream(spliterator(), false);
-    }
-
-    public IntStream parallelStream() {
-        return StreamSupport.intStream(spliterator(), true);
     }
 }

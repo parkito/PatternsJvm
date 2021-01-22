@@ -5,11 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.exercise1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class Scandinavia {
     private final List<Scandinavian> citizens = new ArrayList<>();
 

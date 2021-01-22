@@ -36,7 +36,7 @@ public class WalkingCollection<E>
         try {
             final Iterator<E> wrappedIterator =
                 wrappedCollection.iterator();
-            return new Iterator<E>() {
+            return new Iterator<>() {
                 public boolean hasNext() {
                     rwlock.readLock().lock();
                     try {

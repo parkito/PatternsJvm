@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package visitor.exercise1;
 
 import maths.*;
@@ -17,31 +16,22 @@ import maths.*;
  * Use the maths.Statistics class to work out the mean and variance for the list
  * lengths.
  */
-public class CountingVisitor implements Visitor {
+public class CountingVisitor {
     private final Statistics composites = new Statistics();
-    private int leaves = 0;
 
     public int getNumberOfLeaves() {
-        return leaves;
+        throw new UnsupportedOperationException("todo");
     }
 
     public int getNumberOfComposites() {
-        return composites.size();
+        throw new UnsupportedOperationException("todo");
     }
 
     public double getAverageNumberOfChildrenPerComposite() {
-        return composites.getMean();
+        throw new UnsupportedOperationException("todo");
     }
 
     public double getVarianceNumberOfChildrenPerComposite() {
-        return composites.getVariance();
-    }
-
-    public void visit(Person p) {
-        leaves++;
-    }
-
-    public void visit(DistributionList dl) {
-        composites.add(dl.getNumberOfChildren());
+        throw new UnsupportedOperationException("todo");
     }
 }

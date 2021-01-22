@@ -5,11 +5,7 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package singleton.exercise3;
-
-
-import java.lang.reflect.*;
 
 /**
  * Please make the Earth and the two methods spin() and warmUp() abstract.
@@ -17,32 +13,21 @@ import java.lang.reflect.*;
  * Next use the system property "earthclass" to decide what earth class to make.
  * Use the FastEarth as your default.
  */
-public abstract class Earth {
-    private volatile static Earth earth;
+public class Earth {
+    private static final Earth earth = new Earth();
 
     public static Earth getEarth() {
-        if (earth == null) {
-            synchronized (Earth.class) {
-                try {
-                    String earthClassName = System.getProperty("earthclass",
-                        FastEarth.class.getName());
-                    Class<? extends Earth> earthClass = Class.forName(earthClassName, true,
-                        Thread.currentThread().getContextClassLoader()).asSubclass(Earth.class);
-                    Constructor<? extends Earth> earthConstructor = earthClass.getDeclaredConstructor();
-                    earthConstructor.setAccessible(true);
-                    earth = (Earth) earthConstructor.newInstance();
-                } catch (ReflectiveOperationException e) {
-                    throw new IllegalStateException(e);
-                }
-            }
-        }
         return earth;
     }
 
-    protected Earth() {
+    private Earth() {
     }
 
-    public abstract void spin();
+    public void spin() {
+        System.out.println("Earth is spinning");
+    }
 
-    public abstract void warmUp();
+    public void warmUp() {
+        System.out.println("Earth is warming up");
+    }
 }

@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package nullobject.solution1;
 
 import java.io.*;
@@ -16,9 +15,9 @@ import java.util.function.*;
 import java.util.stream.*;
 
 public class TextAnalyzer {
+    private final Map<Character, Long> map;
     private static final char[] characterArray =
         "aeiouAEIOUbcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".toCharArray();
-    private final Map<Character, Long> map;
 
     public TextAnalyzer(String filename) throws IOException {
         Path path = Paths.get(filename);

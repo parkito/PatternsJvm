@@ -7,6 +7,7 @@
  */
 package strategy.solution1;
 
+//DON'T CHANGE
 public interface TaxStrategy {
     double extortCash();
 }

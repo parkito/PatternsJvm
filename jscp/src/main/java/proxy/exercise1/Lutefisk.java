@@ -5,9 +5,14 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.exercise1;
 
-public interface Lutefisk {
-    void eat();
+public class Lutefisk {
+    public Lutefisk() {
+        System.out.println("Lutefisk created!");
+    }
+
+    public void eat() {
+        System.out.println("You will regret eating me!");
+    }
 }

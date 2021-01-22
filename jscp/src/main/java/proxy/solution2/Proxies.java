@@ -5,12 +5,12 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.solution2;
 
 import java.lang.reflect.*;
 import java.util.function.*;
 
+//DON'T CHANGE
 public class Proxies {
     public static <T> T virtual(ClassLoader loader, Class<T> subject, Supplier<? extends T> supplier) {
         return subject.cast(Proxy.newProxyInstance(

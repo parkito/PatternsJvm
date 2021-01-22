@@ -5,8 +5,8 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package memento.exercise2;
 
+//DON'T CHANGE
 public interface Memento {
 }

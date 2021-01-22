@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package observer.exercise1;
 
+//DON'T CHANGE
 public class SharePrice {
     private final String share;
     private final double price;

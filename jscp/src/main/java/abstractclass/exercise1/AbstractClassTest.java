@@ -5,21 +5,18 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.exercise1;
 
+import org.junit.*;
 
 import java.lang.reflect.*;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class AbstractClassTest {
     public static class ReadOnlyIntArrayList extends AbstractIntCollection {
         private final int[] elements;
@@ -280,16 +277,22 @@ public class AbstractClassTest {
         assertEquals(55, iadStream.sum());
 
     }
-    /*
 
-
-    default IntStream stream() {
-        return StreamSupport.intStream(spliterator(), false);
+    @Test
+    public void testMethodsInConcreteClasses() {
+        checkClassDoesNotContainMethod(IntArrayList.class, "toString");
+        checkClassDoesNotContainMethod(IntArrayList.class, "stream");
+        checkClassDoesNotContainMethod(IntArrayList.class, "parallelStream");
+        checkClassDoesNotContainMethod(IntArrayDeque.class, "toString");
+        checkClassDoesNotContainMethod(IntArrayDeque.class, "stream");
+        checkClassDoesNotContainMethod(IntArrayDeque.class, "parallelStream");
     }
 
-    default IntStream parallelStream() {
-        return StreamSupport.intStream(spliterator(), true);
+    private void checkClassDoesNotContainMethod(Class<?> clazz, String method) {
+        try {
+            clazz.getDeclaredMethod(method);
+            fail(method + "() should be common in AbstractIntCollection and not declared in " + clazz.getSimpleName());
+        } catch (NoSuchMethodException ignored) {
+        }
     }
-
-     */
 }

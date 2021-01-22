@@ -7,6 +7,7 @@
  */
 package iterator.solution1;
 
+//DON'T CHANGE
 public class AddProcessor<N extends Number>
     implements Processor<N> {
     private double total = 0;

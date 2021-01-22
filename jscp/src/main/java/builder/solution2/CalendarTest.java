@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package builder.solution2;
 
 import org.junit.*;
@@ -14,6 +13,7 @@ import java.time.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class CalendarTest {
     @Test
     public void testOnlyDate() {

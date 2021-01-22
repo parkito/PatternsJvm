@@ -7,7 +7,6 @@
  */
 package singleton.solution3;
 
-
 public class SlowEarth extends Earth {
     public void spin() {
         System.out.println("SlowEarth.spin");

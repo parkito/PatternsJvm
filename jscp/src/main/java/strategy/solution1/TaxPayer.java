@@ -11,9 +11,6 @@ public class TaxPayer {
     public static final int COMPANY = 0;
     public static final int EMPLOYEE = 1;
     public static final int TRUST = 2;
-    public static final double COMPANY_RATE = 0.30;
-    public static final double EMPLOYEE_RATE = 0.45;
-    public static final double TRUST_RATE = 0.35;
 
     private final double income;
     private final TaxStrategy taxStrategy;

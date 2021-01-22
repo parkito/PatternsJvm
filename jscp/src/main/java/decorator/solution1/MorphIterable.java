@@ -7,7 +7,6 @@
  */
 package decorator.solution1;
 
-
 import java.util.*;
 
 // this class should implement Iterable<B>
@@ -21,7 +20,7 @@ public class MorphIterable<A, B> implements Iterable<B> {
     }
 
     public Iterator<B> iterator() {
-        return new Iterator<B>() {
+        return new Iterator<>() {
             private final Iterator<A> wrapped = input.iterator();
 
             public boolean hasNext() {

@@ -5,11 +5,10 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package proxy.exercise1;
 
 public class Norwegian extends Scandinavian {
-    private final Lutefisk lutefisk = new VirtualLutefisk();
+    private Lutefisk lutefisk;
 
     public void work() {
         System.out.println("Working hard whilst it is dark outside.");
@@ -20,6 +19,9 @@ public class Norwegian extends Scandinavian {
     }
 
     public void celebrateChristmas() {
+        if (lutefisk == null) {
+            lutefisk = new Lutefisk();
+        }
         lutefisk.eat();
     }
 

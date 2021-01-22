@@ -7,15 +7,12 @@
  */
 package observer.solution2;
 
-
 import java.util.*;
 import java.util.concurrent.*;
 
 public class Trader implements Flow.Subscriber<SharePrice> {
     private final StockTicker ticker = new StockTicker();
-    private final Set<String> watchlist = Collections.synchronizedSet(
-        new LinkedHashSet<>());
-    private Flow.Subscription subscription;
+    private final Set<String> watchlist = new ConcurrentSkipListSet<>();
 
     public Trader(String... shares) {
         Collections.addAll(watchlist, shares);

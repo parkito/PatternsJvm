@@ -7,6 +7,7 @@
  */
 package composite.solution1;
 
+//DON'T CHANGE
 public class MailClient {
     public static void main(String... args) {
         Contact tjsn = new DistributionList();
@@ -17,13 +18,5 @@ public class MailClient {
         tjsn.add(new Person("anton@bea.com"));
         tjsn.sendMail(
             "Welcome to The Java Specialists' Newsletter");
-        ContactIterator it = new ContactIterator(tjsn);
-        while(it.hasNext()) {
-            System.out.println("it.next() = " + it.next());
-        }
-        it.remove();
-        it.remove();
-        it.remove();
-
     }
 }

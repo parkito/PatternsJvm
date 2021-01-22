@@ -7,7 +7,8 @@
  */
 package defaultvisitor.exercise1;
 
-public class Person extends AbstractLeafContact {
+//DON'T CHANGE
+public class Person extends Contact {
     private final String email;
 
     public Person(String email) {
@@ -21,7 +22,7 @@ public class Person extends AbstractLeafContact {
     }
 
     public void accept(Visitor visitor) {
-        visitor.visitPerson(this);
+        visitor.visit(this);
     }
 
     public String getEmail() {

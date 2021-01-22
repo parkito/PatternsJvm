@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package defaultvisitor.exercise1;
 
 import org.junit.*;
@@ -16,6 +15,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class DefaultVisitorTest {
     @Test
     public void testCountingVisitor() throws Throwable {
@@ -25,9 +25,9 @@ public class DefaultVisitorTest {
         Contact d = new Person("d@a.ws");
         Contact e = new Person("e@a.ws");
         Contact f = new Person("f@a.ws");
-        DistributionList root = new DistributionList();
-        DistributionList dl1 = new DistributionList();
-        DistributionList dl2 = new DistributionList();
+        Contact root = new DistributionList();
+        Contact dl1 = new DistributionList();
+        Contact dl2 = new DistributionList();
         root.add(dl1);
         dl2.add(a);
         dl2.add(b);
@@ -84,8 +84,8 @@ public class DefaultVisitorTest {
     @Test
     public void testEmailGatheringVisitorStructure() throws ClassNotFoundException {
         try {
-            EmailGatheringVisitor.class.getDeclaredMethod("visitPerson", DistributionList.class);
-            fail("EmailGatheringVisitor should not contain a visitContact method for DistributionList");
+            EmailGatheringVisitor.class.getDeclaredMethod("visit", DistributionList.class);
+            fail("EmailGatheringVisitor should not contain a visit method for DistributionList");
         } catch (NoSuchMethodException ignored) {
             // success
         }
@@ -110,9 +110,9 @@ public class DefaultVisitorTest {
         Contact d = new Person("d@a.ws");
         Contact e = new Person("e@a.ws");
         Contact f = new Person("f@a.ws");
-        DistributionList root = new DistributionList();
-        DistributionList dl1 = new DistributionList();
-        DistributionList dl2 = new DistributionList();
+        Contact root = new DistributionList();
+        Contact dl1 = new DistributionList();
+        Contact dl2 = new DistributionList();
         root.add(dl1);
         dl2.add(a);
         dl2.add(b);
@@ -152,9 +152,9 @@ public class DefaultVisitorTest {
 
     @Test
     public void testEmailGatheringVisitor() throws Throwable {
-        DistributionList root = new DistributionList();
-        DistributionList dl1 = new DistributionList();
-        DistributionList dl2 = new DistributionList();
+        Contact root = new DistributionList();
+        Contact dl1 = new DistributionList();
+        Contact dl2 = new DistributionList();
         root.add(dl1);
         dl2.add(new Person("b@a.ws"));
         dl2.add(new Person("a@a.ws"));

@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package strategy.exercise2;
 
 import java.util.*;
@@ -19,27 +18,14 @@ public class ConsultingHouse {
     }
 
     public Stream<Programmer> getProgrammersByRichestSmartest() {
-        return Stream.of(programmers).sorted(
-            Comparator.comparingDouble(Programmer::getSalary)
-                .thenComparingInt(ConsultingHouse::getNumberOfLanguagesByProgrammer)
-                .reversed()
-                .thenComparing(Programmer::getName));
+        return Stream.of(programmers);
     }
 
     public Stream<Programmer> getProgrammersBySmartestRichest() {
-        return Stream.of(programmers).sorted(
-            Comparator.comparingInt(ConsultingHouse::getNumberOfLanguagesByProgrammer)
-                .thenComparingDouble(Programmer::getSalary)
-                .reversed()
-                .thenComparing(Programmer::getName)
-        );
-    }
-
-    private static int getNumberOfLanguagesByProgrammer(Programmer p) {
-        return p.getLanguages().size();
+        return Stream.of(programmers);
     }
 
     public Stream<Programmer> getProgrammersByName() {
-        return Stream.of(programmers).sorted(Comparator.comparing(Programmer::getName));
+        return Stream.of(programmers);
     }
 }

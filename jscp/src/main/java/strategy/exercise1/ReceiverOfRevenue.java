@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package strategy.exercise1;
 
+//DON'T CHANGE
 public class ReceiverOfRevenue {
     public static void main(String... args) {
         TaxPayer heinz, maxsol, family;

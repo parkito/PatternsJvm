@@ -7,7 +7,6 @@
  */
 package decorator.solution1;
 
-
 import java.util.*;
 import java.util.concurrent.locks.*;
 import java.util.stream.*;

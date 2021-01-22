@@ -5,15 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package abstractclass.exercise1;
 
-import java.util.*;
-import java.util.function.*;
 import java.util.stream.*;
 
-public interface IntCollection
-    extends IntIterable {
+public interface IntCollection extends IntIterable {
     boolean contains(int i);
 
     int size();
@@ -24,19 +20,20 @@ public interface IntCollection
 
     // TODO: Change the java.util.Collection methods below to
     // TODO: work for IntCollection (some won't make sense)
-    //*
+    /*
     boolean isEmpty();
-    IntIterator iterator();
-    int[] toArray();
-    boolean add(int e);
-    boolean remove(int o);
-    boolean containsAll(IntCollection c);
-    boolean addAll(IntCollection c);
-    boolean removeAll(IntCollection c);
-    default boolean removeIf(IntPredicate filter) {
+    Iterator<E> iterator();
+    Object[] toArray();
+    <T> T[] toArray(T[] a);
+    boolean add(E e);
+    boolean remove(Object o);
+    boolean containsAll(Collection<?> c);
+    boolean addAll(Collection<? extends E> c);
+    boolean removeAll(Collection<?> c);
+    default boolean removeIf(Predicate<? super E> filter) {
         Objects.requireNonNull(filter);
         boolean removed = false;
-        final IntIterator each = iterator();
+        final Iterator<E> each = iterator();
         while (each.hasNext()) {
             if (filter.test(each.next())) {
                 each.remove();
@@ -45,10 +42,10 @@ public interface IntCollection
         }
         return removed;
     }
-    boolean retainAll(IntCollection c);
+    boolean retainAll(Collection<?> c);
     void clear();
-    default IntStream parallelStream() {
-        return stream().parallel();
+    default Stream<E> parallelStream() {
+        return StreamSupport.stream(spliterator(), true);
     }
-    //*/
+    */
 }

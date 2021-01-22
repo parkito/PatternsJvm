@@ -5,19 +5,19 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package adapter.exercise1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class MusicFest {
-    private final List<Performer> performers = new ArrayList<>();
+    private final List<Singer> singers = new ArrayList<>();
 
-    public void addPerformer(Performer performer) {
-        performers.add(performer);
+    public void addSinger(Singer singer) {
+        singers.add(singer);
     }
 
     public void singAll() {
-        performers.forEach(Performer::perform);
+        singers.forEach(Singer::sing);
     }
 }

@@ -21,8 +21,7 @@ public class Person extends Contact {
     }
 
     public void accept(Visitor visitor) {
-        if (visitor instanceof PersonVisitor)
-            ((PersonVisitor) visitor).visit(this);
+        visitor.visit(this);
     }
 
     public String getEmail() {

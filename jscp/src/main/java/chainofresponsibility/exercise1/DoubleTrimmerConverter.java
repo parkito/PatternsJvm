@@ -5,18 +5,12 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package chainofresponsibility.exercise1;
 
-public class DoubleTrimmerConverter extends Converter {
-    public DoubleTrimmerConverter(Converter next) {
-        super(next);
-    }
-
+public class DoubleTrimmerConverter {
     public Object handle(Object o) {
-        if (o instanceof Double) {
-            o = (double)Math.round((Double)o);
-        }
-        return super.handle(o);
+        // if the object is a Double, we trim to the nearest Integer,
+        // but still return a Double instance
+        throw new UnsupportedOperationException("todo");
     }
 }

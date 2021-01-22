@@ -5,17 +5,13 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package chainofresponsibility.exercise1;
 
 public abstract class Converter {
-    private final Converter next;
-
-    public Converter(Converter next) {
-        this.next = next;
-    }
+    // you will need a handle to the next converter
 
     public Object handle(Object o) {
-        return next == null ? o : next.handle(o);
+        // if the next converter is non-null, we call its handle method
+        throw new UnsupportedOperationException("todo");
     }
 }

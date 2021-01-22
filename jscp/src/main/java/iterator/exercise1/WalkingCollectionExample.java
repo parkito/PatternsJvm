@@ -5,11 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package iterator.exercise1;
 
 import java.util.*;
 
+//DON'T CHANGE
 public class WalkingCollectionExample {
     public static void main(String... args) {
         WalkingCollection<Long> ages = new WalkingCollection<>(

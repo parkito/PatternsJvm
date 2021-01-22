@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package interpreter.solution1;
 
 import java.util.stream.*;
@@ -18,15 +17,15 @@ public class Expressions {
     }
 
     public static Expression sum(String... numbers) {
-        return Stream.of(numbers)
-            .map(number -> (Expression) new Value(number))
-            .reduce(new Value("0"), (value1, value2) -> new Sum(value1, value2));
+        return new Sum(convert(numbers));
     }
 
+    private static Expression[] convert(String... numbers) {
+    	return Stream.of(numbers)
+        .map(number -> new Value(number)).toArray(Expression[]::new);
+    }
     public static Expression product(String... numbers) {
-        return Stream.of(numbers)
-            .map(number -> (Expression) new Value(number))
-            .reduce(new Value("1"), (value1, value2) -> new Product(value1, value2));
+        return new Product(convert(numbers));
     }
 
     public static Expression negate(Expression exp) {

@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package singleton.solution1;
 
 import org.junit.*;
@@ -14,7 +13,9 @@ import java.lang.reflect.*;
 
 import static org.junit.Assert.*;
 
+//DON'T CHANGE
 public class Singleton1Test {
+    @SuppressWarnings("static-access")
     @Test
     public void callTheSpinAndWarmUpMethods() throws Exception {
         Method accessor = findStaticInstanceAccessorMethod();

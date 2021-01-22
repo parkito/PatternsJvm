@@ -5,9 +5,9 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
+package proxy.solution1;
 
-package proxy.exercise2;
-
+//DON'T CHANGE
 public class ScandinvianExample {
     public static void main(String... args) {
         Scandinavia sc = new Scandinavia();

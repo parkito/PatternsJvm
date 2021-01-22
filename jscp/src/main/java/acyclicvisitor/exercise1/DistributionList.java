@@ -27,8 +27,7 @@ public class DistributionList extends Contact {
     }
 
     public void accept(Visitor visitor) {
-        if (visitor instanceof DistributionListVisitor)
-            ((DistributionListVisitor) visitor).visit(this);
+        visitor.visit(this);
         contacts.forEach(contact -> contact.accept(visitor));
     }
 

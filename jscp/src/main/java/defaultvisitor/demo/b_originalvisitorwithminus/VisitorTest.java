@@ -5,15 +5,10 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package defaultvisitor.demo.b_originalvisitorwithminus;
 
-import org.junit.*;
-
-import static org.junit.Assert.assertEquals;
-
 public class VisitorTest {
-  //*
+  /*
   @Test
   public void onePlusTwoPlusThreePlusFourCounting() {
     Expression expression = new Plus(new Number(1), new Plus(new Number(2), new Plus(new Number(3), new Number(4))));

@@ -5,12 +5,12 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package bridge.exercise1;
 
 import java.awt.*;
 import java.util.*;
 
+//DON'T CHANGE
 public class DrawingTool2 {
     /**
      * Used to check that all the drawings were done correctly.

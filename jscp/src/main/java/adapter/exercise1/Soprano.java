@@ -5,11 +5,11 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package adapter.exercise1;
 
-public class Soprano implements Performer {
-    public void perform() {
-        System.out.println("Soprano.perform");
+//DON'T CHANGE
+public class Soprano implements Singer {
+    public void sing() {
+        System.out.println("Soprano.sing");
     }
 }

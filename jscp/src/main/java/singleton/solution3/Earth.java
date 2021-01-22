@@ -7,7 +7,6 @@
  */
 package singleton.solution3;
 
-
 /**
  * Please make the Earth and the two methods spin() and warmUp() abstract.
  * <p/>

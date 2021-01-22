@@ -5,7 +5,6 @@
  *
  * Copyright 2001-2018, Heinz Kabutz, All rights reserved.
  */
-
 package bridge.solution1;
 
 import org.junit.*;
@@ -16,6 +15,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 import static util.TestHelpers.*;
 
+//DON'T CHANGE
 public class BridgeTest {
     @Test
     public void testConcreteShapesDoNotContainDrawingFields() {
@@ -136,11 +136,19 @@ public class BridgeTest {
         Collection<Class<? extends Drawing>> classes = getDrawingClasses();
         assertEquals("We would expect two Drawing implementations", 2, classes.size());
         for (Class<? extends Drawing> clazz : classes) {
+            assertNotSame("DrawingTool1 should be adapted to the Drawing", DrawingTool1.class, clazz);
+            assertNotSame("DrawingTool2 should be adapted to the Drawing", DrawingTool2.class, clazz);
             assertEquals("The Drawing classes should only implement the Drawing interface and not extends any classes", Object.class, clazz.getSuperclass());
         }
     }
 
     private Collection<Class<? extends Drawing>> getDrawingClasses() throws ClassNotFoundException {
         return getClassesExtending(Drawing.class);
+    }
+
+    @Test
+    public void testDrawingTools() {
+        assertEquals("DrawingTool1 should not implement any interfaces", 0, DrawingTool1.class.getInterfaces().length);
+        assertEquals("DrawingTool2 should not implement any interfaces", 0, DrawingTool2.class.getInterfaces().length);
     }
 }
