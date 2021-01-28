@@ -7,7 +7,11 @@
  */
 package abstractclass.exercise1;
 
-import java.util.stream.*;
+import java.util.Objects;
+import java.util.function.IntPredicate;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public interface IntCollection extends IntIterable {
     boolean contains(int i);
@@ -20,20 +24,28 @@ public interface IntCollection extends IntIterable {
 
     // TODO: Change the java.util.Collection methods below to
     // TODO: work for IntCollection (some won't make sense)
-    /*
     boolean isEmpty();
-    Iterator<E> iterator();
-    Object[] toArray();
-    <T> T[] toArray(T[] a);
-    boolean add(E e);
-    boolean remove(Object o);
-    boolean containsAll(Collection<?> c);
-    boolean addAll(Collection<? extends E> c);
-    boolean removeAll(Collection<?> c);
-    default boolean removeIf(Predicate<? super E> filter) {
+
+    IntIterator iterator();
+
+    int[] toArray();
+
+//    int[] toArray(int[] a);
+
+    boolean add(int e);
+
+    boolean remove(int o);
+
+    boolean containsAll(IntCollection c);
+
+    boolean addAll(IntCollection c);
+
+    boolean removeAll(IntCollection c);
+
+    default boolean removeIf(IntPredicate filter) {
         Objects.requireNonNull(filter);
         boolean removed = false;
-        final Iterator<E> each = iterator();
+        final IntIterator each = iterator();
         while (each.hasNext()) {
             if (filter.test(each.next())) {
                 each.remove();
@@ -42,10 +54,12 @@ public interface IntCollection extends IntIterable {
         }
         return removed;
     }
-    boolean retainAll(Collection<?> c);
+
+    boolean retainAll(IntCollection c);
+
     void clear();
-    default Stream<E> parallelStream() {
+
+    default Stream<Integer> parallelStream() {
         return StreamSupport.stream(spliterator(), true);
     }
-    */
 }

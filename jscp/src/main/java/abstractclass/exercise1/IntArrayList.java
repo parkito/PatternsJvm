@@ -7,11 +7,20 @@
  */
 package abstractclass.exercise1;
 
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.*;
+import java.util.Arrays;
+import java.util.ConcurrentModificationException;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.Spliterator;
+import java.util.function.IntConsumer;
+import java.util.function.IntPredicate;
+import java.util.function.IntUnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
 
-public class IntArrayList implements Cloneable {
+public class IntArrayList extends AbstractIntCollection implements Cloneable {
     // TODO: extend AbstractIntCollection and change references to
     // TODO: IntCollection instead of IntArrayList where you can
     // TODO: toString() is the same as in AbtractIntCollection - delete
@@ -134,6 +143,11 @@ public class IntArrayList implements Cloneable {
     public int[] toArray() {
         return Arrays.copyOf(elementData, size);
     }
+
+//    @Override
+//    public int[] toArray(int[] a) {
+//        return new int[0];
+//    }
 
     int elementData(int index) {
         return elementData[index];
@@ -560,6 +574,11 @@ public class IntArrayList implements Cloneable {
         return removeIf(filter, 0, size);
     }
 
+    @Override
+    public boolean retainAll(IntCollection c) {
+        return false;
+    }
+
     boolean removeIf(IntPredicate filter, int i, final int end) {
         Objects.requireNonNull(filter);
         int expectedModCount = modCount;
@@ -661,9 +680,5 @@ public class IntArrayList implements Cloneable {
 
     public IntStream stream() {
         return StreamSupport.intStream(spliterator(), false);
-    }
-
-    public IntStream parallelStream() {
-        return StreamSupport.intStream(spliterator(), true);
     }
 }

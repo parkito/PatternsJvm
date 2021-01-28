@@ -7,11 +7,20 @@
  */
 package abstractclass.exercise1;
 
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.ConcurrentModificationException;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.OptionalInt;
+import java.util.Spliterator;
+import java.util.function.IntConsumer;
+import java.util.function.IntPredicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
 
-public class IntArrayDeque implements Cloneable {
+public class IntArrayDeque extends AbstractIntCollection implements Cloneable {
     // TODO: extend AbstractIntCollection and change references to
     // TODO: IntCollection instead of IntArrayDeque where you can.
     // TODO: toString() is the same as in AbtractIntCollection - delete
@@ -508,6 +517,11 @@ public class IntArrayDeque implements Cloneable {
         return bulkRemove(filter);
     }
 
+    @Override
+    public boolean retainAll(IntCollection c) {
+        return false;
+    }
+
     public boolean removeAll(IntArrayDeque c) {
         Objects.requireNonNull(c);
         return bulkRemove(c::contains);
@@ -622,6 +636,11 @@ public class IntArrayDeque implements Cloneable {
         return stream().toArray();
     }
 
+//    @Override
+//    public int[] toArray(int[] a) {
+//        return new int[0];
+//    }
+
     // *** Object methods ***
 
     public IntArrayDeque clone() {
@@ -662,10 +681,6 @@ public class IntArrayDeque implements Cloneable {
 
     public IntStream stream() {
         return StreamSupport.intStream(spliterator(), false);
-    }
-
-    public IntStream parallelStream() {
-        return StreamSupport.intStream(spliterator(), true);
     }
 
 

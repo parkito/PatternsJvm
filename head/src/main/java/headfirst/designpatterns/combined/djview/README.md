@@ -33,10 +33,10 @@ bin/ directory in your project directory).
 for the form post/get in index.html
 
 10. Create a set of folders that create the path: 
-tomcat/webapps/djview/WEB-INF/classes/headfirst/designpatterns/combined/djview/
+tomcat/webapps/djview/WEB-INF/classes/headfirst/headfirst.designpatterns/combined/djview/
 
-11. Copy the following classes from headfirst/designpatterns/combined/djview/ to the 
-tomcat/webapps/djview/WEB-INF/classes/headfirst/designpatterns/combined/djview/ 
+11. Copy the following classes from headfirst/headfirst.designpatterns/combined/djview/ to the 
+tomcat/webapps/djview/WEB-INF/classes/headfirst/headfirst.designpatterns/combined/djview/ 
 folder:
    * BeatModel.class 
    * BeatModelInterface.class 

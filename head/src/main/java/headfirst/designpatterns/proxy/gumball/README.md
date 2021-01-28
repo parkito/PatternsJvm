@@ -8,9 +8,9 @@ To get code running on localhost:
 rmiregistry &
 
 3. Run:
-java headfirst/designpatterns/proxy/gumball/GumballMachineTestDrive localhost 300
+java headfirst/headfirst.designpatterns/proxy/gumball/GumballMachineTestDrive localhost 300
 
 4. In a different window, run:
-java headfirst/designpatterns/proxy/gumball/GumballMonitorTestDrive localhost
+java headfirst/headfirst.designpatterns/proxy/gumball/GumballMonitorTestDrive localhost
 
 

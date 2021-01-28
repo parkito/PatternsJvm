@@ -7,8 +7,10 @@
  */
 package abstractclass.exercise1;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
 
 // DON'T CHANGE
 public abstract class AbstractIntCollection implements IntCollection {
@@ -102,9 +104,5 @@ public abstract class AbstractIntCollection implements IntCollection {
 
     public IntStream stream() {
         return StreamSupport.intStream(spliterator(), false);
-    }
-
-    public IntStream parallelStream() {
-        return StreamSupport.intStream(spliterator(), true);
     }
 }

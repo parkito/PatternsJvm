@@ -7,18 +7,24 @@
  */
 package abstractclass.exercise1;
 
-import org.junit.*;
+import org.junit.Test;
 
-import java.lang.reflect.*;
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.NoSuchElementException;
+import java.util.function.IntPredicate;
+import java.util.stream.IntStream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 //DON'T CHANGE
 public class AbstractClassTest {
-    public static class ReadOnlyIntArrayList extends AbstractIntCollection {
+    public static class ReadOnlyIntArrayList
+        extends AbstractIntCollection {
         private final int[] elements;
 
         public ReadOnlyIntArrayList(int... elements) {
@@ -48,13 +54,15 @@ public class AbstractClassTest {
 
 
     @Test
-    public void testContains() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testContains()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method contains = IntCollection.class.getMethod("contains", int.class);
         assertTrue((Boolean) contains.invoke(new ReadOnlyIntArrayList(1, 2, 3, 4, 5), 3));
     }
 
     @Test
-    public void testContainsAll() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testContainsAll()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method containsAll = IntCollection.class.getMethod("containsAll", IntCollection.class);
         assertTrue((Boolean) containsAll.invoke(new ReadOnlyIntArrayList(1, 2, 3, 4, 5),
             new ReadOnlyIntArrayList(2, 4, 5)));
@@ -66,7 +74,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testToArray() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testToArray()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method toArray = IntCollection.class.getMethod("toArray");
         int[] ints = {1, 2, 3, 4, 5};
         IntArrayList ial = new IntArrayList();
@@ -82,7 +91,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testSize() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testSize()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method size = IntCollection.class.getMethod("size");
         int[] ints = {1, 2, 3, 4, 5};
         IntArrayList ial = new IntArrayList();
@@ -98,7 +108,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testIsEmpty() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testIsEmpty()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method isEmpty = IntCollection.class.getMethod("isEmpty");
         int[] ints = {1, 2, 3, 4, 5};
         IntArrayList ial = new IntArrayList();
@@ -116,7 +127,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testAdd() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testAdd()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method add = IntCollection.class.getMethod("add", int.class);
         Method toArray = IntCollection.class.getMethod("toArray");
         int[] ints = {1, 2, 3, 4, 5};
@@ -130,7 +142,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testRemove() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testRemove()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method remove = IntCollection.class.getMethod("remove", int.class);
         Method add = IntCollection.class.getMethod("add", int.class);
         int[] ints = {1, 2, 3, 4, 5};
@@ -150,7 +163,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testAddAll() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testAddAll()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method addAllCollection = IntCollection.class.getMethod("addAll", IntCollection.class);
         Method addAllArrayList = IntArrayList.class.getMethod("addAll", IntCollection.class);
         Method addAllArrayDeque = IntArrayDeque.class.getMethod("addAll", IntCollection.class);
@@ -171,7 +185,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testRemoveAll() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testRemoveAll()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method removeAllCollection = IntCollection.class.getMethod("removeAll", IntCollection.class);
         Method removeAllArrayList = IntArrayList.class.getMethod("removeAll", IntCollection.class);
         Method removeAllArrayDeque = IntArrayDeque.class.getMethod("removeAll", IntCollection.class);
@@ -195,7 +210,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testRemoveIf() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testRemoveIf()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method removeAllCollection = IntCollection.class.getMethod("removeIf", IntPredicate.class);
         Method removeAllArrayList = IntArrayList.class.getMethod("removeIf", IntPredicate.class);
         Method removeAllArrayDeque = IntArrayDeque.class.getMethod("removeIf", IntPredicate.class);
@@ -219,11 +235,12 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testRetainAll() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testRetainAll()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method retainAllCollection = IntCollection.class.getMethod("retainAll", IntCollection.class);
         Method retainAllArrayList = IntArrayList.class.getMethod("retainAll", IntCollection.class);
         Method retainAllArrayDeque = IntArrayDeque.class.getMethod("retainAll", IntCollection.class);
-        IntArrayList ial = new IntArrayList();
+        AbstractIntCollection ial = new IntArrayList();
         IntArrayDeque iad = new IntArrayDeque();
         for (int i = 1; i <= 10; i++) {
             ial.add(i);
@@ -243,7 +260,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testClear() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testClear()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method clearCollection = IntCollection.class.getMethod("clear");
         IntArrayList ial = new IntArrayList();
         IntArrayDeque iad = new IntArrayDeque();
@@ -261,7 +279,8 @@ public class AbstractClassTest {
     }
 
     @Test
-    public void testStream() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void testStream()
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method streamCollection = IntCollection.class.getMethod("stream");
         IntArrayList ial = new IntArrayList();
         IntArrayDeque iad = new IntArrayDeque();
