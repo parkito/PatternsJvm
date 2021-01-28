@@ -23,7 +23,6 @@ import java.util.stream.StreamSupport;
 public class IntArrayDeque extends AbstractIntCollection implements Cloneable {
     // TODO: extend AbstractIntCollection and change references to
     // TODO: IntCollection instead of IntArrayDeque where you can.
-    // TODO: toString() is the same as in AbtractIntCollection - delete
     transient Integer[] elements;
 
     transient int head;
@@ -130,7 +129,7 @@ public class IntArrayDeque extends AbstractIntCollection implements Cloneable {
             grow(1);
     }
 
-    public boolean addAll(IntArrayDeque c) {
+    public boolean addAll(IntCollection c) {
         final int s, needed;
         if ((needed = (s = size()) + c.size() + 1 - elements.length) > 0)
             grow(needed);
@@ -518,16 +517,13 @@ public class IntArrayDeque extends AbstractIntCollection implements Cloneable {
     }
 
     @Override
-    public boolean retainAll(IntCollection c) {
-        return false;
-    }
-
-    public boolean removeAll(IntArrayDeque c) {
+    public boolean removeAll(IntCollection c) {
         Objects.requireNonNull(c);
         return bulkRemove(c::contains);
     }
 
-    public boolean retainAll(IntArrayDeque c) {
+    @Override
+    public boolean retainAll(IntCollection c) {
         Objects.requireNonNull(c);
         return bulkRemove(e -> !c.contains(e));
     }
@@ -674,16 +670,6 @@ public class IntArrayDeque extends AbstractIntCollection implements Cloneable {
         }
     }
 
-    public String toString() {
-        return stream().mapToObj(Integer::toString)
-            .collect(Collectors.joining(", ", "[", "]"));
-    }
-
-    public IntStream stream() {
-        return StreamSupport.intStream(spliterator(), false);
-    }
-
-
     // Bulk Operations
 
     public boolean containsAll(IntArrayDeque c) {
@@ -693,5 +679,4 @@ public class IntArrayDeque extends AbstractIntCollection implements Cloneable {
         }
         return true;
     }
-
 }

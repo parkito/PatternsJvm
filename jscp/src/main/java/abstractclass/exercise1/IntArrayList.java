@@ -16,14 +16,10 @@ import java.util.Spliterator;
 import java.util.function.IntConsumer;
 import java.util.function.IntPredicate;
 import java.util.function.IntUnaryOperator;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.StreamSupport;
 
 public class IntArrayList extends AbstractIntCollection implements Cloneable {
-    // TODO: extend AbstractIntCollection and change references to
-    // TODO: IntCollection instead of IntArrayList where you can
-    // TODO: toString() is the same as in AbtractIntCollection - delete
     private static final int DEFAULT_CAPACITY = 10;
 
     private static final int[] EMPTY_ELEMENTDATA = {};
@@ -144,11 +140,11 @@ public class IntArrayList extends AbstractIntCollection implements Cloneable {
         return Arrays.copyOf(elementData, size);
     }
 
-//    @Override
+
+    //    @Override
 //    public int[] toArray(int[] a) {
 //        return new int[0];
 //    }
-
     int elementData(int index) {
         return elementData[index];
     }
@@ -302,15 +298,16 @@ public class IntArrayList extends AbstractIntCollection implements Cloneable {
         return "From Index: " + fromIndex + " > To Index: " + toIndex;
     }
 
-    public boolean removeAll(IntArrayList c) {
+    public boolean removeAll(IntCollection c) {
         return batchRemove(c, false, 0, size);
     }
 
-    public boolean retainAll(IntArrayList c) {
+    @Override
+    public boolean retainAll(IntCollection c) {
         return batchRemove(c, true, 0, size);
     }
 
-    boolean batchRemove(IntArrayList c, boolean complement,
+    boolean batchRemove(IntCollection c, boolean complement,
                         final int from, final int end) {
         Objects.requireNonNull(c);
         final int[] es = elementData;
@@ -574,11 +571,6 @@ public class IntArrayList extends AbstractIntCollection implements Cloneable {
         return removeIf(filter, 0, size);
     }
 
-    @Override
-    public boolean retainAll(IntCollection c) {
-        return false;
-    }
-
     boolean removeIf(IntPredicate filter, int i, final int end) {
         Objects.requireNonNull(filter);
         int expectedModCount = modCount;
@@ -671,14 +663,5 @@ public class IntArrayList extends AbstractIntCollection implements Cloneable {
                 return false;
         }
         return true;
-    }
-
-    public String toString() {
-        return stream().mapToObj(Integer::toString)
-            .collect(Collectors.joining(", ", "[", "]"));
-    }
-
-    public IntStream stream() {
-        return StreamSupport.intStream(spliterator(), false);
     }
 }
