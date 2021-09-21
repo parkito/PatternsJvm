@@ -6,7 +6,7 @@ buildscript {
 
 plugins {
     java
-    kotlin("jvm") version "1.5.30"
+    kotlin("jvm") version "1.5.31"
 }
 
 allprojects {
@@ -16,7 +16,6 @@ allprojects {
     repositories {
         mavenCentral()
     }
-
 }
 
 subprojects {
@@ -30,8 +29,13 @@ subprojects {
     }
 
     dependencies {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.30")
-        testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.2")
-        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.2")
+        implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
+        testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.0")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.0")
+    }
+
+    tasks.test {
+        // Use the built-in JUnit support of Gradle.
+        useJUnitPlatform()
     }
 }
