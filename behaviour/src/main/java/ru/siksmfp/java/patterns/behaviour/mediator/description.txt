@@ -1,4 +1,0 @@
-Mediator in the pattern for centralization control flow.
-If there are a lot of elements which behaviour crossed
-it is possible to delegate control to mediator whose
-responsibility is controlling interdependence between components.

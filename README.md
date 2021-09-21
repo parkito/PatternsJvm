@@ -1,1 +1,0 @@
-Design patterns implementen in Java

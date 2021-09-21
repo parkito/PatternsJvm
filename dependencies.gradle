@@ -1,5 +1,0 @@
-ext {
-    jUnitApiVersion = '5.0.0'
-    jUnitEngineVersion = '5.0.0'
-    self4jVersion = '1.7.25'
-}
