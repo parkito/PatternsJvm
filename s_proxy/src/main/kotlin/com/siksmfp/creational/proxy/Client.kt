@@ -6,7 +6,8 @@ import java.time.LocalDateTime
 
 fun main() {
     val registry = LocateRegistry.getRegistry()
-    val service: MessageService = registry.lookup(SERVICE_NAME) as MessageService
-    service.send(LocalDateTime.now().toString())
-    println(service.request())
+    val proxyMessageService: MessageService = registry.lookup(SERVICE_NAME) as MessageService
+
+    proxyMessageService.send(LocalDateTime.now().toString())
+    println(proxyMessageService.request())
 }

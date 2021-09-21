@@ -7,8 +7,8 @@ import java.rmi.server.UnicastRemoteObject
 fun main() {
     println("Starting server")
     val ms = MessageServiceImpl()
-    val stub = UnicastRemoteObject.exportObject(ms, 0)
+    val proxy = UnicastRemoteObject.exportObject(ms, 0)
     val registry = LocateRegistry.createRegistry(1099)
-    registry.rebind(SERVICE_NAME, stub);
+    registry.rebind(SERVICE_NAME, proxy);
     println("exit rebinding")
 }
