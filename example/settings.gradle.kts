@@ -1,4 +1,4 @@
-//rootProject.name = 'example'
-include (":module1")
-include (":module2")
+rootProject.name = "example"
+include(":module1")
+include(":module2")
 
