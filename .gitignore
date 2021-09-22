@@ -1,5 +1,7 @@
 syntax: glob
 *.idea
+.idea/
+gradle/
 .gradle/
 classes/
 /*/gradle/
