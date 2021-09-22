@@ -15,7 +15,8 @@ classes/
 \.chg\..*$
 \.rej$
 \.conflict\~$
-
+gradlew
+gradlew.bat
 *.class
 
 # Mobile Tools for Java (J2ME)
