@@ -5,8 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class StateFactory { // Singleton
     private static final StateFactory INSTANCE = new StateFactory();
-    private final Map<Class<? extends State>, State> flyweights =
-            new ConcurrentHashMap<>();
+    private final Map<Class<? extends State>, State> flyweights = new ConcurrentHashMap<>();
 
     public static StateFactory getInstance() {
         return INSTANCE;
