@@ -1,4 +1,4 @@
-package com.siksmfp.creational.momento;
+package com.siksmfp.behavioral.momento;
 
 import org.junit.jupiter.api.Test;
 
