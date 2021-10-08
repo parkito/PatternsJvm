@@ -22,12 +22,8 @@ class Editor(
         currentState = states.last()
     }
 
-    fun redo() {
-        states.addLast(currentState)
-    }
-
     fun print() {
-        println("${currentState.content}cursor: ${currentState.position}")
+        println("${currentState.content} : ${currentState.position}")
     }
 }
 
@@ -40,6 +36,9 @@ fun main() {
     val editor = Editor()
     editor.addSymbol('a')
     editor.addSymbol('b')
+    editor.print()
     editor.addSymbol('c')
+    editor.undo()
+    editor.addSymbol('d')
     editor.print()
 }
