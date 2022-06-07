@@ -14,46 +14,50 @@ data class AddNewUserEvent(
     val password: String
 ) : Event
 
-interface Observer<out T> {
+interface Observer {
     fun id(): String
 
-    fun update(event: @UnsafeVariance T)
+    fun update(event: Event)
 }
 
-class LowRamObserver : Observer<RamEvent> {
-    override fun update(event: RamEvent) {
-        if ((event.used / event.available) * 100 < 30) {
-            println("LOW MEMORY")
+class LowRamObserver : Observer {
+    override fun update(event: Event) {
+        if (event is RamEvent) {
+            if ((event.used / event.available) * 100 < 30) {
+                println("LOW MEMORY")
+            }
         }
     }
 
     override fun id(): String = "LOW_RAM" + LocalDateTime.now()
 }
 
-class AddNewUserObserver(private val id: String) : Observer<AddNewUserEvent> {
-    override fun update(event: AddNewUserEvent) {
-        println("Registering user " + event.name + " in the system " + id)
+class AddNewUserObserver(private val id: String) : Observer {
+    override fun update(event: Event) {
+        if (event is AddNewUserEvent) {
+            println("Registering user " + event.name + " in the system " + id)
+        }
     }
 
     override fun id(): String = id
 }
 
 class EvenManager() {
-    private val observers: MutableList<Observer<Event>> = ArrayList()
+    private val observers: MutableList<Observer> = ArrayList()
 
-    fun <T : Event> attach(observer: Observer<T>) {
+    fun attach(observer: Observer) {
         println("Registering observer " + observer.id())
         observers.add(observer)
         println("Registered observers " + observers.size)
     }
 
-    fun <T : Event> detach(id: String) {
+    fun detach(id: String) {
         println("Removing observer $id")
         observers.removeIf { it.id() == id }
         println("Registered observers " + observers.size)
     }
 
-    fun <T : Event> publish(event: T) {
+    fun publish(event: Event) {
         observers.forEach { it.update(event) }
     }
 
@@ -66,13 +70,10 @@ class EvenManager() {
 fun main() {
     val manager = EvenManager()
 
-    listOf(
-        LowRamObserver(),
-        LowRamObserver(),
-        LowRamObserver(),
-        AddNewUserObserver("local"),
-        AddNewUserObserver("outer"),
-    ).forEach(manager::attach)
+    manager.attach(LowRamObserver())
+    manager.attach(LowRamObserver())
+    manager.attach(AddNewUserObserver("local"))
+    manager.attach(AddNewUserObserver("outer"))
 
     listOf(
         RamEvent(100, 10),
